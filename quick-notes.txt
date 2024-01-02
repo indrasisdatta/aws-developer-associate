@@ -1,0 +1,10 @@
+Practice Questions:
+
+1. Github
+https://github.com/Ditectrev/Amazon-Web-Services-AWS-Developer-Associate-DVA-C02-Practice-Tests-Exams-Questions-Answers?tab=readme-ov-file#which-of-the-following-are-good-use-cases-for-how-amazon-elasticache-can-help-an-application-select-two
+
+2. YouTube 
+   Sthithapragna: https://www.youtube.com/watch?v=zca2PBxzwqI&list=PL7GozF-qZ4KdpXCIcPKeBf5rljY8OM4gU
+   Peaceofcode: https://www.youtube.com/watch?v=TiXdgFfAkdM&list=PLviC8AFqAj5BlrBNOHEUd5OTyltKS74P2
+
+3. Udemy Practice tests
