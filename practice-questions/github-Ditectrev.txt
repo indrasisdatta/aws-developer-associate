@@ -1,0 +1,44 @@
+1. A company's ecommerce website is experiencing massive traffic spikes, which are causing performance problems in the company database. Users are reporting that accessing the website takes a long time. A developer wants to implement a caching layer using Amazon ElastiCache. The website is required to be responsive no matter which product a user views, and the updates to product information and prices must be strongly consistent. Which cache writing policy will satisfy these requirements?
+Ans:  Write to the cache and the backend at the same time. (Ref: https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/Strategies.html#Strategies.WriteThrough)
+
+https://github.com/Ditectrev/Amazon-Web-Services-AWS-Developer-Associate-DVA-C02-Practice-Tests-Exams-Questions-Answers?tab=readme-ov-file#a-companys-ecommerce-website-is-experiencing-massive-traffic-spikes-which-are-causing-performance-problems-in-the-company-database-users-are-reporting-that-accessing-the-website-takes-a-long-time-a-developer-wants-to-implement-a-caching-layer-using-amazon-elasticache-the-website-is-required-to-be-responsive-no-matter-which-product-a-user-views-and-the-updates-to-product-information-and-prices-must-be-strongly-consistent-which-cache-writing-policy-will-satisfy-these-requirements
+
+2. A Developer wants to upload data to Amazon S3 and must encrypt the data in transit. Which of the following solutions will accomplish this task?
+Ans: B) Set up client side encryption with AWS KMS managed customer master key
+     D) Transfer the data over SSL connection 
+
+3. A company uses a third-party tool to build, bundle, and package its applications on-premises and store them locally. The company uses Amazon EC2 instances to run its front-end applications. How can an application be deployed from the source control system onto the EC2 instances?
+Ans: B. Upload the bundle in S3 bucket and specify the location in Codedeploy
+
+4. An AWS Lambda function generates a 3MB JSON file and then uploads it to an Amazon S3 bucket daily. The file contains sensitive information, so the Developer must ensure that it is encrypted before uploading to the bucket. Which of the following modifications should the Developer make to ensure that the data is encrypted before uploading it to the bucket?
+Ans: C. Use the GenerateDateKey API then use that data key to encrypt the file in the Lambda function code.
+
+5. A developer must extend an existing application that is based on the AWS Services Application Model (AWS SAM). The developer has used the AWS SAM CLI to create the project. The project contains different AWS Lambda functions. Which combination of commands must the developer use to redeploy the AWS SAM application?
+Ans: sam build, sam deploy
+
+6. An application deployed on AWS Elastic Beanstalk experiences increased error rates during deployments of new application versions, resulting in service degradation for users. The Development team believes that this is because of the reduction in capacity during the deployment steps. The team would like to change the deployment policy configuration of the environment to an option that maintains full capacity during deployment while using the existing instances. Which deployment policy will meet these requirements while using the existing instances?
+Ans: Immutable
+
+7. The development team is working on an API that will be served from Amazon API gateway. The API will be served from three environments: development, test, and production. The API Gateway is configured to use 237 GB of cache in all three stages. Which is the MOST cost-efficient deployment strategy?
+Ans: Enable the cache for dev and test only when needed 
+
+8. A gaming company is developing a mobile game application for iOS® and Android® platforms. This mobile game securely stores user data locally on the device. The company wants to allow users to use multiple device for the game, which requires user data synchronization across device.Which service should be used to synchronize user data across devices without the need to create a backend application?
+Ans: Amazon Cognito
+
+9. A Developer is making changes to a custom application that is currently using AWS Elastic Beanstalk. After the Developer completes the changes, what solutions will update the Elastic Beanstalk environment with the new application version? 
+Ans: C. Package the application code into a .tar file, and upload and deploy the packaged application from the AWS Management Console. 
+     D. Package the application code into a .zip file, create new app version from the packaged application by using AWS CLI, then update the environment by using AWS CLI
+
+10. A company is running an application built on AWS Lambda functions. One Lambda function has performance issues when it has to download a 50MB file from the Internet in every execution. This function is called multiple times a second. What solution would give the BEST performance increase?
+Ans: Cache the file in /tmp drectory (tmp has 512 limit)
+
+11. A development team is creating a new application designed to run on AWS. While the test and production environments will run on Amazon EC2 instances, developers will each run their own environment on their laptops. Which of the following is the simplest and MOST secure way to access AWS services from the local development machines?
+Ans: Use an IAM role to assume a role and execute API calls using that role.
+
+12. How is provisioned throughput affected by the chosen consistency model when reading data from a DynamoDB table?
+Ans: Strongly consistent reads use more throughput than eventually consistent reads.
+
+
+
+
+
