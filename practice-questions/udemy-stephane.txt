@@ -1,0 +1,116 @@
+https://cognizant.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/quiz/4517280/result/1154568724#overview
+
+1. A company has a workload that requires 14,000 consistent IOPS for data that must be durable and secure. The compliance standards of the company state that the data should be secure at every stage of its lifecycle on all of the EBS volumes they use.
+Which of the following statements are true regarding data security on EBS?
+Ans: EBS volumes support both in flight encryption and encryption at rest using KMS
+
+2. A large firm stores its static data assets on Amazon S3 buckets. Each service line of the firm has its own AWS account. For a business use case, the Finance department needs to give access to their S3 bucket's data to the Human Resources department.
+Which of the below options is NOT feasible for cross-account access of S3 bucket objects?
+Ans: Use IAM roles and resource-based policies delegate access across accounts within different partitions via programatic access only (Wrong, it's possible in only single partition)
+
+3. After a test deployment in ElasticBeanstalk environment, a developer noticed that all accumulated Amazon EC2 burst balances were lost.Which of the following options can lead to this behavior?
+Ans: The deployment was either run with immutable updates or in traffic splitting mode
+
+4. A development team has deployed a REST API in Amazon API Gateway to two different stages - a test stage and a prod stage. The test stage is used as a test build and the prod stage as a stable build. After the updates have passed the test, the team wishes to promote the test stage to the prod stage. Which of the following represents the optimal solution for this use-case?
+Ans: Update stage variable value from the stage name of test to that of prod
+
+5. You are responsible for an application that runs on multiple Amazon EC2 instances. In front of the instances is an Internet-facing load balancer that takes requests from clients over the internet and distributes them to the EC2 instances. A health check is configured to ping the index.html page found in the root directory for the health status. When accessing the website via the internet visitors of the website receive timeout errors. What should be checked first to resolve the issue?
+Ans: Security Group
+
+6. Amazon Simple Queue Service (SQS) has a set of APIs for various actions supported by the service. As a developer associate, which of the following would you identify as correct regarding the CreateQueue API? (Select two)
+Ans: You can't change the queue type after you create it, The visibility timeout value for the queue is in seconds, which defaults to 30 seconds
+
+7. The development team at an e-commerce company is preparing for the upcoming Thanksgiving sale. The product manager wants the development team to implement appropriate caching strategy on Amazon ElastiCache to withstand traffic spikes on the website during the sale. A key requirement is to facilitate consistent updates to the product prices and product description, so that the cache never goes out of sync with the backend. As a Developer Associate, which of the following solutions would you recommend for the given use-case?
+Ans: Use a caching strategy to write to the backend first and then invalidate the cache
+
+8. As a developer, you are working on creating an application using AWS Cloud Development Kit (CDK). Which of the following represents the correct order of steps to be followed for creating an app using AWS CDK?
+Ans: Create the app from a template provided by AWS CDK -> Add code to the app to create resources within stacks -> Build the app (optional) -> Synthesize one or more stacks in the app -> Deploy stack(s) to your AWS account
+
+9. A company would like to migrate the existing application code from a GitHub repository to AWS CodeCommit. As an AWS Certified Developer Associate, which of the following would you recommend for migrating the cloned repository to CodeCommit over HTTPS?
+Ans: Use Git credentials generated from IAM
+
+10. A .NET developer team works with many ASP.NET web applications that use EC2 instances to host them on IIS. The deployment process needs to be configured so that multiple versions of the application can run in AWS Elastic Beanstalk. One version would be used for development, testing, and another version for load testing. Which of the following methods do you recommend?
+Ans: Define a dev environment with a single instance and a 'load test' environment that has settings close to production environment
+
+11. A company has built its technology stack on AWS serverless architecture for managing all its business functions. To expedite development for a new business requirement, the company is looking at using pre-built serverless applications. Which AWS service represents the easiest solution to address this use-case?
+Ans: AWS Serverless Application Repository (SAR)
+
+12. You have migrated an on-premise SQL Server database to an Amazon Relational Database Service (RDS) database attached to a VPC inside a private subnet. Also, the related Java application, hosted on-premise, has been moved to an Amazon Lambda function. Which of the following should you implement to connect AWS Lambda function to its RDS instance?
+Ans: Configure Lambda to connect to VPC with private subnet and Security Group needed to access RDS
+
+13. You are getting ready for an event to show off your Alexa skill written in JavaScript. As you are testing your voice activation commands you find that some intents are not invoking as they should and you are struggling to figure out what is happening. You included the following code console.log(JSON.stringify(this.event)) in hopes of getting more details about the request to your Alexa skill. You would like the logs stored in an Amazon Simple Storage Service (S3) bucket named MyAlexaLog. How do you achieve this?
+Ans: Use CloudWatch integration feature with S3
+
+14. A pharmaceutical company uses Amazon EC2 instances for application hosting and Amazon CloudFront for content delivery. A new research paper with critical findings has to be shared with a research team that is spread across the world. Which of the following represents the most optimal solution to address this requirement without compromising the security of the content?
+Ans: Use CloudFront signed URL feature to control access to the file
+
+15. A development team has configured inbound traffic for the relevant ports in both the Security Group of the EC2 instance as well as the Network Access Control List (NACL) of the subnet for the EC2 instance. The team is, however, unable to connect to the service running on the Amazon EC2 instance. As a developer associate, which of the following will you recommend to fix this issue?
+Ans: Security Groups are stateful, so allowing inbound traffic to the necessary ports enables the connection. Network ACLs are stateless, so you must allow both inbound and outbound traffic 
+
+16. An e-commerce company uses AWS CloudFormation to implement Infrastructure as Code for the entire organization. Maintaining resources as stacks with CloudFormation has greatly reduced the management effort needed to manage and maintain the resources. However, a few teams have been complaining of failing stack updates owing to out-of-band fixes running on the stack resources. Which of the following is the best solution that can help in keeping the CloudFormation stack and its resources in sync with each other?
+Ans: Use Drift Detection feature of CloudFormation
+
+17. An e-commerce company has multiple EC2 instances operating in a private subnet which is part of a custom VPC. These instances are running an image processing application that needs to access images stored on S3. Once each image is processed, the status of the corresponding record needs to be marked as completed in a DynamoDB table. How would you go about providing private access to these AWS resources which are not part of this custom VPC?
+Ans: Create a separate gateway endpoint for S3 and DynamoDB each. Add two new target entries for these two gateway endpoints in the route table of the custom VPC
+
+18. A junior developer working on ECS instances terminated a container instance in Amazon Elastic Container Service (Amazon ECS) as per instructions from the team lead. But the container instance continues to appear as a resource in the ECS cluster. As a Developer Associate, which of the following solutions would you recommend to fix this behavior?
+Ans: You terminated the container instance while it was in STOPPED state, that lead to this synchronization issues - If you terminate a container instance while it is in the STOPPED state, that container instance isn't automatically removed from the cluster. You will need to deregister your container instance in the STOPPED state by using the Amazon ECS console or AWS Command Line Interface. Once deregistered, the container instance will no longer appear as a resource in your Amazon ECS cluster.
+
+19. A website serves static content from an Amazon Simple Storage Service (Amazon S3) bucket and dynamic content from an application load balancer. The user base is spread across the world and latency should be minimized for a better user experience. Which technology/service can help access the static and dynamic content while keeping the data latency low?
+Ans: Configure CloudFront with multiple origins to serve both static and dynamic content at low latency to global users
+
+20. A junior developer has been asked to configure access to an Amazon EC2 instance hosting a web application. The developer has configured a new security group to permit incoming HTTP traffic from 0.0.0.0/0 and retained any default outbound rules. A custom Network Access Control List (NACL) connected with the instance's subnet is configured to permit incoming HTTP traffic from 0.0.0.0/0 and retained any default outbound rules. Which of the following solutions would you suggest if the EC2 instance needs to accept and respond to requests from the internet?
+Ans: An outbound rule must be added to the Network ACL (NACL) to allow the response to be sent to the client on the ephemeral port range
+
+21. A security company is requiring all developers to perform server-side encryption with customer-provided encryption keys when performing operations in AWS S3. Developers should write software with C# using the AWS SDK and implement the requirement in the PUT, GET, Head, and Copy operations. Which of the following encryption methods meets this requirement? 
+Ans: SSE-C
+
+22. A developer is defining the signers that can create signed URLs for their Amazon CloudFront distributions. Which of the following statements should the developer consider while defining the signers? (Select two)
+Ans: When you create a signer, the public key is with CloudFront and private key is used to sign a portion of URL
+     When you use the root user to manage CloudFront key pairs, you can only have up to two active CloudFront key pairs per AWS account
+
+23. A developer has created a new Application Load Balancer but has not registered any targets with the target groups. Which of the following errors would be generated by the Load Balancer?
+Ans: HTTP 503: Service unavailable - The Load Balancer generates the HTTP 503 when the target groups for the load balancer have no registered targets.
+
+24. While defining a business workflow as state machine on AWS Step Functions, a developer has configured several states. Which of the following would you identify as the state that represents a single unit of work performed by a state machine?
+Ans: "HelloWorld": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-east-1:123456789012:function:HelloFunction",
+        "Next": "AfterHelloWorldState",
+        "Comment": "Run the HelloWorld Lambda function"
+      }
+
+25. A Developer at a company is working on a CloudFormation template to set up resources. Resources will be defined using code and provisioned based on certain conditions defined in the Conditions section. Which section of a CloudFormation template cannot be associated with Condition?
+Ans: Parameters - Parameters enable you to input custom values to your CloudFormation template each time you create or update a stack. 
+
+26. A firm runs its technology operations on a fleet of Amazon EC2 instances. The firm needs a certain software to be available on the instances to support their daily workflows. The developer team has been told to use the user data feature of EC2 instances. Which of the following are true about the user data EC2 configuration? ( Select two)
+Ans: By default, scripts entered as user data are executed with root user privileges 
+     By default, user data runs only during the boot cycle when you first launch an instance
+
+27. A development team at a social media company uses AWS Lambda for its serverless stack on AWS Cloud. For a new deployment, the Team Lead wants to send only a certain portion of the traffic to the new Lambda version. In case the deployment goes wrong, the solution should also support the ability to roll back to a previous version of the Lambda function, with MIMINUM downtime for the application. As a Developer Associate, which of the following options would you recommend to address this use-case?
+Ans: Set up the application to use an alias that points to the current version. Deploy the new version of the code and configure the alias to send 10% of the users to this new version. If the deployment goes wrong, reset the alias to point all traffic to the current version
+
+28. A company wants to automate its order fulfillment and inventory tracking workflow. Starting from order creation to updating inventory to shipment, the entire process has to be tracked, managed and updated automatically. Which of the following would you recommend as the most optimal solution for this requirement?
+Ans: Use AWS Step Functions to coordinate and manage the components of order management and inventory tracking workflow - AWS Step Functions is a serverless function orchestrator that makes it easy to sequence AWS Lambda functions and multiple AWS services into business-critical applications.
+
+29. A developer from your team has configured the load balancer to route traffic equally between instances or across Availability Zones. However, Elastic Load Balancing (ELB) routes more traffic to one instance or Availability Zone than the others. Why is this happening and how can it be fixed? (Select two)
+Ans: Sticky sessions are enabled for the load balancer
+     Instances of a specific capacity type aren’t equally distributed across Availability Zones
+
+30. Your company has been hired to build a resilient mobile voting app for an upcoming music award show that expects to have 5 to 20 million viewers. The mobile voting app will be marketed heavily months in advance so you are expected to handle millions of messages in the system. You are configuring Amazon Simple Queue Service (SQS) queues for your architecture that should receive messages from 20 KB to 200 KB. Is it possible to send these messages to SQS?
+Ans: Yes, the max message size is 256KB
+
+31. A development team wants to build an application using serverless architecture. The team plans to use AWS Lambda functions extensively to achieve this goal. The developers of the team work on different programming languages like Python, .NET and Javascript. The team wants to model the cloud infrastructure using any of these programming languages. Which AWS service/tool should the team use for the given use-case?
+Ans: AWS Cloud Development Kit (CDK)
+
+
+
+
+
+
+
+
+
+
+
+
