@@ -1,1 +1,124 @@
+Practice Test 1
+https://cognizant.udemy.com/course/aws-developer-associate-practice-exams/learn/quiz/4852734/result/1155601396#overview
+
+1. A developer is setting up the primary key for an Amazon DynamoDB table that logs a company's purchases from various suppliers. Each transaction is recorded with these attributes: supplierId, transactionTime, item, and unitCost.
+Which primary key configuration will be valid in this case?
+Ans: A composite primary key with supplierId as the partition key and transactionTime as the sort key
+
+2. A Developer is creating a new web application that will be deployed using AWS Elastic Beanstalk from the AWS Management Console. The Developer is about to create a source bundle which will be uploaded using the console. Which of the following are valid requirements for creating the source bundle? (Select TWO.)
+Ans: Must not include a parent folder or top-level directory
+     Must not exceed 512 MB
+
+3. A developer is updating an Amazon ECS app that uses an ALB with two target groups and a single listener. The developer has an AppSpec file in an S3 bucket and an AWS CodeDeploy deployment group tied to the ALB and AppSpec file. The developer needs to use an AWS Lambda function for update validation before deployment. Which solution meets these requirements?
+Ans: Add a listener to the ALB. Update the AppSpec file to link the Lambda function to the BeforeAllowTraffic lifecycle hook
+
+The AppSpec file allows a developer to specify scripts to be run at different lifecycle hooks. The BeforeAllowTraffic lifecycle event occurs before the updated task set is moved to the target group that is receiving live traffic. So, any validation before production deployment should be configured at this lifecycle event. The listener is configured at the ALB level, not at the deployment group.
+
+4. A Developer is designing a fault-tolerant application that will use Amazon EC2 instances and an Elastic Load Balancer. The Developer needs to ensure that if an EC2 instance fails session data is not lost. How can this be achieved? 
+Ans: Use Amazon DynamoDB to perform scalable session handling
+
+5. A Developer is deploying an application in a microservices architecture on Amazon ECS. The Developer needs to choose the best task placement strategy to MINIMIZE the number of instances that are used. Which task placement strategy should be used? 
+Ans: binpack 
+
+6. A company has a large Amazon DynamoDB table which they scan periodically so they can analyze several attributes. The scans are consuming a lot of provisioned throughput. What technique can a Developer use to minimize the impact of the scan on the table's provisioned throughput?
+Ans: Set a smaller page size for the scan
+
+7. A developer is using AWS CodeBuild to build an application into a Docker image. The buildspec file is used to run the application build. The developer needs to push the Docker image to an Amazon ECR repository only upon the successful completion of each build.
+Ans: Add a post_build phase to the buildspec file that uses the commands block to push the Docker image
+
+8. An organization handles data that requires high availability in its relational database. The main headquarters for the organization is in Virginia with smaller offices located in California. The main headquarters uses the data more frequently than the smaller offices. How should the developer configure their databases to meet high availability standards?
+Ans: Create an Aurora database with the primary database in Virginia and specify the failover to the Aurora replica in another AZ in Virginia
+
+9. A developer is responsible for a business critical application that uses Amazon DynamoDB as its main data repository. This DynamoDB table holds millions of records and handles high volumes of requests. The developer must implement near-real time processing on the records as soon as they are inserted or modified in the DynamoDB table. What's the most efficient way to introduce this capability with MINIMUM modification to the existing application code?
+Ans: Use AWS Lambda triggered by DynamoDB Streams to process the documents
+
+10. A developer is partitioning data using Athena to improve performance when performing queries. What are two things the analyst can do that would counter any benefit of using partitions?
+Ans: Segmenting data too finely, Skewing data heavily to one partition value
+
+11. A serverless application uses an AWS Lambda function to process Amazon S3 events. The Lambda function executes 20 times per second and takes 20 seconds to complete each execution. How many concurrent executions will the Lambda function require?
+Ans: 400
+
+12. A company is migrating to the AWS Cloud and needs to build a managed Public Key Infrastructure (PKI) using AWS services. The solution must support the following features:
+     - IAM integration.
+     - Auditing with AWS CloudTrail.
+     - Private certificates.
+     - Subordinate certificate authorities (CAs).
+Which solution should the company use to meet these requirements?
+Ans: AWS Private Certificate Authority
+
+13. A programmer has designed an AWS Lambda function that retrieves resources within a VPC. This Lambda function fetches new messages from an Amazon SQS queue. It then computes a cumulative average of the numerical data within the messages. After the initial Lambda function tests, the programmer discovered the computed cumulative average was not consistent. What should the programmer do to ascertain the accuracy of the cumulative average computed by the function?
+Ans: Set the provisioned concurrency of the function to 1. Compute the cumulative average within the function. Retain the computed cumulative average in Amazon ElastiCache
+(Setting the provisioned concurrency of the function to 1 ensures that only one instance of the function will be operating at any given time)
+
+14. A developer is running queries on Hive-compatible partitions in Athena using DDL but is facing time out issues. What is the most effective and efficient way to prevent this from continuing to happen?
+Ans: Use the MSCK REPAIR TABLE command to update the metadata in the catalog
+
+15. A company is deploying a microservices application on AWS Fargate using Amazon ECS. The application has environment variables that must be passed to a container for the application to initialize. How should the environment variables be passed to the container?
+Ans: Use advanced container definition parameters and define environment variables under the environment parameter within the task definition
+
+16. A developer has deployed an application on AWS Lambda. The application uses Python and must generate and then upload a file to an Amazon S3 bucket. The developer must implement the upload functionality with the least possible change to the application code. Which solution BEST meets these requirements?
+Ans: Use the AWS SDK for Python that is installed in the Lambda execution environment
+
+17. An application deployed on AWS Elastic Beanstalk experienced increased error rates during deployments of new application versions, resulting in service degradation for users. The Development team believes that this is because of the reduction in capacity during the deployment steps. The team would like to change the deployment policy configuration of the environment to an option that maintains full capacity during deployment while using the existing instances. Which deployment policy will meet these requirements while using the existing instances?
+Ans: Rolling with additional batch
+
+18. An e-commerce web application that shares session state on-premises is being migrated to AWS. The application must be fault tolerant, natively highly scalable, and any service interruption should not affect the user experience. What is the best option to store the session state?
+Ans: Store the session state in Amazon ElastiCache
+
+19. A company is deploying a static website hosted from an Amazon S3 bucket. The website must support encryption in-transit for website visitors. Which combination of actions must the Developer take to meet this requirement? (Select TWO.)
+Ans: Create an Amazon CloudFront distribution. Set the S3 bucket as an origin
+     Configure an Amazon CloudFront distribution with an SSL/TLS certificate
+
+20. A Developer will be launching several Docker containers on a new Amazon ECS cluster using the EC2 Launch Type. The containers will all run a web service on port 80. What is the EASIEST way the Developer can configure the task definition to ensure the web services run correctly and there are no port conflicts on the host instances?
+Ans: Specify port 80 for the container port and port 0 for the host port
+
+21. A Developer has used a third-party tool to build, bundle, and package a software package on-premises. The software package is stored in a local file system and must be deployed to Amazon EC2 instances. How can the application be deployed onto the EC2 instances?
+Ans: Upload the bundle to an Amazon S3 bucket and specify the S3 location when doing a deployment using AWS CodeDeploy
+
+22. An ecommerce company manages a storefront that uses an Amazon API Gateway API which exposes an AWS Lambda function. The Lambda functions processes orders and stores the orders in an Amazon RDS for MySQL database. The number of transactions increases sporadically during marketing campaigns, and then goes close to zero during quite times. How can a developer increase the elasticity of the system MOST cost-effectively?
+Ans: Migrate from Amazon RDS to Amazon Aurora MySQL. Use an Aurora Auto Scaling policy to scale read replicas based on average connections of Aurora Replicas
+
+23. A business is providing its clients read-only permissions to items within an Amazon S3 bucket, utilizing IAM permissions to limit access to this S3 bucket. Clients are only permitted to access their specific files. Regulatory compliance necessitates the enforcement of in-transit encryption during communication with Amazon S3. What solution will fulfill these criteria?
+Ans: Update the S3 bucket policy to include a condition that requires aws:SecureTransport for all actions
+
+24. A Developer is setting up a code update to Amazon ECS using AWS CodeDeploy. The Developer needs to complete the code update quickly. Which of the following deployment types should the Developer use?
+Ans: Blue/green
+
+25. A Developer is deploying an AWS Lambda update using AWS CodeDeploy. In the appspec.yaml file, which of the following is a valid structure for the order of hooks that should be specified?
+Ans: BeforeAllowTraffic > AfterAllowTraffic
+
+26. A developer is working on an application that must save hundreds of sensitive files. The application needs to encrypt each file using a unique key before storing it. What should the developer do to implement this in the application?
+Ans: Use the AWS KMS GenerateDataKey API to acquire a data key, use the data key to encrypt the data, and store both the encrypted data key and the data
+
+27. A critical application runs on an Amazon EC2 instance. A Developer has configured a custom Amazon CloudWatch metric that monitors application availability with a data granularity of 1 second. The Developer must be notified within 30 seconds if the application experiences any issues. What should the Developer do to meet this requirement?
+Ans: Configure a high-resolution CloudWatch alarm and use Amazon SNS to send the alert
+
+28. A review of Amazon CloudWatch metrics shows that there are a high number of reads taking place on a primary database built on Amazon Aurora with MySQL. What can a developer do to improve the read scaling of the database?
+Ans: Create Aurora Replicas in same cluster as the primary database instance
+     Create a separate Aurora MySQL cluster and configure binlog replication
+
+29. To reduce the cost of API actions performed on an Amazon SQS queue, a Developer has decided to implement long polling. Which of the following modifications should the Developer make to the API actions?
+Ans: Set the ReceiveMessage API with a WaitTimeSeconds of 20
+
+30. A Development team wants to run their container workloads on Amazon ECS. Each application container needs to share data with another container to collect logs and metrics. What should the Development team do to meet these requirements?
+Ans: Create one task definition. Specify both containers in the definition. Mount a shared volume between those two containers
+
+31. A Developer is writing code to run in a cron job on an Amazon EC2 instance that sends status information about the application to Amazon CloudWatch. Which method should the Developer use?
+Ans: Use the AWS CLI put-metric-data command
+
+32. A Developer is writing an imaging microservice on AWS Lambda. The service is dependent on several libraries that are not available in the Lambda runtime environment.
+Ans: Create a ZIP file with the source code and all dependent libraries
+
+
+
+
+
+
+
+
+
+
+
+
+
 
