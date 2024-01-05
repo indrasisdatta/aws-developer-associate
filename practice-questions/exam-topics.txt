@@ -39,9 +39,95 @@ How can a developer increase the elasticity of the system MOST cost-effectively?
   Ans:  Create an Amazon Simple Queue Service (Amazon SQS) queue. Publish transactions to the queue. Set the queue to invoke the Lambda function. Set the reserved concurrency of the Lambda function to be less than the number of database connections
 
 11. A developer is writing an AWS Lambda function. The Lambda function needs to access items that are stored in an Amazon DynamoDB table. What is the MOST secure way to configure this access for the Lambda function? 
-Ans: Create an IAM policy that allows access to the DynamoDB table. Attach this policy to the Lambda function's IAM role
+  Ans: Create an IAM policy that allows access to the DynamoDB table. Attach this policy to the Lambda function's IAM role
+
+12. A development team has been using a builder server that is hosted on an Amazon EC2 instance to perform builds and deployments for the last 3 months. The EC2 instance's instance profile uses an IAM role that contains the Administrator Access managed policy. The development team must replace that policy with a policy that provides only the required permissions. What is the FASTEST way to create a custom 1AM policy for the EC2 instance to meet this requirement?
+  Ans: Create a new IAM policy that includes all actions that AWS CloudTrail recorded for the IAM role in the last 3 months. 
+
+13. A developer is writing an AWS Lambda function. The developer wants to log key events that occur during the Lambda function and include a unique identifier to associate the events with a specific function invocation.
+Which of the following will help the developer accomplish this objective?
+  Ans: Obtain the request identifier from the Lambda context object. Architect the application to write logs to the console. 
+
+14. A company experienced partial downtime during the last deployment of a new application. AWS Elastic Beanstalk split the environment's Amazon EC2 instances into batches and deployed a new version one batch at a time after taking them out of service. Therefore, full capacity was not maintained during deployment.
+The developer plans to release a new version of the application, and is looking for a policy that will maintain full capacity and minimize the impact of the failed deployment. Which deployment policy should the developer use?  
+  Ans: Immutable
+
+15. A company is providing services to many downstream consumers. Each consumer may connect to one or more services. This has resulted in a complex architecture that is difficult to manage and does not scale well. The company needs a single interface to manage these services to consumers. Which AWS service should be used to refactor this architecture?
+  Ans: API Gateway
+
+16. When a Developer tries to run an AWS CodeBuild project, it raises an error because the length of all environment variables exceeds the limit for the combined maximum of characters. What is the recommended solution?
+  Ans: Use AWS Systems Manager Parameter Store to store large numbers of environment variables.
+
+17. The developer is creating a web application that collects highly regulated and confidential user data through a POST request. The web application is served through Amazon CloudFront. User names and phone numbers must be encrypted at the edge and must remain encrypted throughout the entire application stack. What is the MOST secure way to meet these requirements?
+  Ans: Use field-level encryption on CloudFront.
+
+18. A Developer has been asked to create an AWS Lambda function that is triggered any time updates are made to items in an Amazon DynamoDB table. The function has been created, and appropriate permissions have been added to the Lambda execution role. Amazon DynamoDB streams have been enabled for the table, but the function is still not being triggered.
+Which option would enable DynamoDB table updates to trigger the Lambda function?
+  Ans: Configure event source mapping for the Lambda function
+
+19. A company maintains a REST service using Amazon API Gateway and the API Gateway native API key validation. The company recently launched a new registration page, which allows users to sign up for the service. The registration page creates a new API key using CreateApiKey and sends the new key to the user. When the user attempts to call the API using this key, the user receives a 403 Forbidden error. Existing users are unaffected and can still call the API.
+What code updates will grant these new users access to the API?
+  Ans: The createUsagePlanKey method must be called to associate the newly created API key with the correct usage plan.
+
+20. A Developer is working on an application that handles 10MB documents that contain highly-sensitive data. The application will use AWS KMS to perform client- side encryption. What steps must be followed?
+  Ans: Invoke the GenerateDataKey API to retrieve the plaintext version of the data encryption key to encrypt the data
+
+21. A Company runs continuous integration/continuous delivery (CI/CD) pipelines for its application on AWS CodePipeline. A Developer must write unit tests and run them as part of the pipelines before staging the artifacts for testing.
+How should the Developer incorporate unit tests as part of CI/CD pipelines?
+  Ans: Update the AWS CodeBuild specification to include a phase for running unit tests 
+
+22. A Developer must analyze performance issues with production-distributed applications written as AWS Lambda functions. These distributed Lambda applications invoke other components that make up the applications.
+How should the Developer identify and troubleshoot the root cause of the performance issues in production?
+Ans: Use AWS X-Ray, then examine the segments and errors. 
+
+23. A Developer is working on a serverless project based in Java. Initial testing shows a cold start takes about 8 seconds on average for AWS Lambda functions.
+What should the Developer do to reduce the cold start time? (Choose two.)
+Ans: Reduce the deployment package by including only needed modules from the AWS SDK for Java.
+     Increase the memory allocation setting for the Lambda function.
+
+24. A company runs an e-commerce website that uses Amazon DynamoDB where pricing for items is dynamically updated in real time. At any given time, multiple updates may occur simultaneously for pricing information on a particular product. This is causing the original editor's changes to be overwritten without a proper review process.
+Which DynamoDB write option should be selected to prevent this overwriting?
+  Ans: Conditional writes
+
+25. A Developer must build an application that uses Amazon DynamoDB. The requirements state that the items being stored in the DynamoDB table will be 7KB in size and that reads must be strongly consistent. The maximum read rate is 3 items per second, and the maximum write rate is 10 items per second.
+How should the Developer size the DynamoDB table to meet these requirements?
+  Ans: Read: 6 read capacity units Write: 70 write capacity units 
+       strongly consistent = 1 RCU per 4k, so 2 RCU per read and we have 3 per second, so 2x3=6 read capacity.
+       Write uses 1k as its capacity, so 7k items will take 7 WCU, as we have 10 writes per second 10x7 = 70.
+
+26. A developer is debugging an AWS Lambda function behind an Amazon API Gateway. Whenever the API Gateway endpoint is called, HTTP status code 200 is returned even though AWS Lambda is recording a 4xx error.
+What change needs to be made to return a proper error code through the API Gateway?
+  Ans: Use a Lambda proxy integration to return HTTP codes and headers
+
+27. A developer is using Amazon S3 as the event source that invokes a Lambda function when new objects are created in the bucket. The event source mapping information is stored in the bucket notification configuration. The developer is working with different versions of the Lambda function, and has a constant need to update notification configuration so that Amazon S3 invokes the correct version.
+What is the MOST efficient and effective way to achieve mapping between the S3 event and Lambda?
+  Ans: Use a Lambda alias.
+
+28. A company has a multi-tier application that uses Amazon API Gateway, AWS Lambda, and Amazon RDS. The company wants to investigate a slow response time to calls that come from the API Gateway API. What is the MOST operationally efficient way for the company to determine which internal call is causing the slow response times?
+  Ans: Use AWS X-Ray. 
+
+29. A developer is deploying an application that will store files in an Amazon S3 bucket. The files must be encrypted at rest. The developer wants to automatically replicate the files to an S3 bucket in a different AWS Region for disaster recovery. How can the developer accomplish this task with the LEAST amount of configuration?
+  Ans: Encrypt the files by using server-side encryption with S3 managed encryption keys (SSE-S3). Enable S3 bucket replication.
+
+30. A serverless application is using AWS Step Functions to process data and save it to a database. The application needs to validate some data with an external service before saving the data. The application will call the external service from an AWS Lambda function, and the external service will take a few hours to validate the data. The external service will respond to a webhook when the validation is complete.
+A developer needs to pause the Step Functions workflow and wait for the response from the external service.
+What should the developer do to meet this requirement?
+  Ans: Use the .wait ForTaskToken option in the Lambda function task state. Pass the token in the body. 
+
+31. A developer must use AWS X-Ray to monitor an application that is running on an Amazon EC2 instance. The developer has prepared the application by using the X-Ray SDK. What should the developer do to perform the monitoring?
+  Ans:  Install the X-Ray daemon. Assign an IAM role to the EC2 instance with a policy that allows writes to X-Ray
+
+32. A developer needs to use the AWS CLI on an on-premises development server temporarily to access AWS services while performing maintenance. The developer needs to authenticate to AWS with their identity for several hours.
+What is the MOST secure way to call AWS CLI commands with the developer's IAM identity?
+  Ans: Run the get-session-token CLI command with the developer's IAM user. Use the returned credentials to call the CLI
+
+33. A developer is creating a serverless application that uses an AWS Lambda function The developer will use AWS CloudFormation to deploy the application The application will write logs to Amazon CloudWatch Logs. The developer has created a log group in a CloudFormation template for the application to use. The developer needs to modify the CloudFormation template to make the name of the log group available to the application at runtime.
+Which solution will meet this requirement?
+  Ans: Pass the log group's Amazon Resource Name (ARN) as an environment variable to the Lambda function.
 
 
-  
+
+
+
 
        
