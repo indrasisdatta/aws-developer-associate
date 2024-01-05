@@ -1,0 +1,47 @@
+1. A developer has created a Java application that makes HTTP requests directly to AWS services. Application logging shows 5xx HTTP response codes that occur at irregular intervals. The errors are affecting users.
+How should the developer update the application to improve the application's resiliency?
+  Ans: Use the AWS SDK for Java to interact with AWS APIs. (SDK has retry mechanism)
+
+2. A global company has a mobile app with static data stored in an Amazon S3 bucket in the us-east-1 Region. The company serves the content through an Amazon CloudFront distribution. The company is launching the mobile app in South Africa. The data must reside in the af-south-1 Region. The company does not want to deploy a specific mobile client for South Africa.
+What should the company do to meet these requirements?
+  Ans: Create a Lambda@Edge function. Associate the Lambda@Edge function as an origin request trigger with the CloudFront distribution to change the S3 origin Region.
+
+3. A developer is testing an AWS Lambda function by using the AWS Serverless Application Model (AWS SAM) local CLI. The application that is implemented by the Lambda function makes several AWS API calls by using the AWS software development kit (SDK). The developer wants to allow the function to make AWS API calls in a test AWS account from the developer's laptop.
+What should the developer do to meet these requirements?
+  Ans: Add a test profile by using the aws configure command with the --profile option. Run AWS SAM by using the sam local invoke command with the -profile option.
+
+4. A developer designed an application on an Amazon EC2 instance. The application makes API requests to objects in an Amazon S3 bucket. Which combination of steps will ensure that the application makes the API requests in the MOST secure manner? (Choose two.)
+  Ans: Create an IAM role that has permissions to the S3 bucket. 
+       Add the IAM role to an instance profile. Attach the instance profile to the EC2 instance.
+
+5. A developer is configuring an Amazon CloudFront distribution for a new application to provide encryption in transit. The application is running in the eu-west-1 Region. The developer creates a new certificate in AWS Certificate Manager (ACM) in eu-west-1, but the certificate is not visible in the CloudFront distribution settings. What should the developer do to fix this problem?
+  Ans: Create the certificate in the eu-west-1 Region. Ensure that the alternate domain name (CNAME) in the distribution settings matches the domain name in the certificate.
+
+ 6. A developer is building an application that runs behind an Application Load Balancer (ALB). The ALB is configured as the origin for an Amazon CloudFront distribution. Users will log in to the application by using their social media accounts.
+How can the developer authenticate users?
+  Ans: Configure the ALB to use Amazon Cognito as one of the authentication providers. 
+
+7. A company hosts a three-tier web application on AWS behind an Amazon CloudFront distribution. A developer wants a dashboard to monitor error rates and anomalies of the CloudFront distribution with the shortest possible refresh interval.
+Which combination of slops should the developer take to meet these requirements? (Choose two.)
+  Ans: Activate real-time logs on the CloudFront distribution. Create a stream in Amazon Kinesis Data Streams. 
+       Configure Amazon Kinesis Data Streams to deliver logs to Amazon OpenSearch Service (Amazon Elasticsearch Service). 
+       Create a dashboard in OpenSearch Dashboards (Kibana).
+
+8. Configure Amazon Kinesis Data Streams to deliver logs to Amazon OpenSearch Service (Amazon Elasticsearch Service). Create a dashboard in OpenSearch Dashboards (Kibana).
+  Ans: Create a docker-compose.yml file. Use the Elastic Beanstalk CLI to deploy the application.
+
+9. A company is using AWS CodeDeploy for all production deployments. A developer has an Amazon Elastic Container Service (Amazon ECS) application that uses the CodeDeployDefault.ECSAIIAtOnce configuration. The developer needs to update the production environment in increments of 10% until the entire production environment is updated. Which CodeDeploy configuration should the developer use to meet these requirements?
+  Ans: CodeDeployDefault.ECSLinear10PercentEvery3Minutes
+
+10. A company has point-of-sale devices across thousands of retail shops that synchronize sales transactions with a centralized system. The system includes an
+Amazon API Gateway API that exposes an AWS Lambda function. The Lambda function processes the transactions and stores the transactions in Amazon RDS for MySQL. The number of transactions increases rapidly during the day and is near zero at night.
+How can a developer increase the elasticity of the system MOST cost-effectively?
+  Ans:  Create an Amazon Simple Queue Service (Amazon SQS) queue. Publish transactions to the queue. Set the queue to invoke the Lambda function. Set the reserved concurrency of the Lambda function to be less than the number of database connections
+
+11. A developer is writing an AWS Lambda function. The Lambda function needs to access items that are stored in an Amazon DynamoDB table. What is the MOST secure way to configure this access for the Lambda function? 
+Ans: Create an IAM policy that allows access to the DynamoDB table. Attach this policy to the Lambda function's IAM role
+
+
+  
+
+       
