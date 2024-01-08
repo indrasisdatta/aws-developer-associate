@@ -126,6 +126,69 @@ Which solution will meet this requirement?
   Ans: Pass the log group's Amazon Resource Name (ARN) as an environment variable to the Lambda function.
 
 
+34. A company is running an application on Amazon Elastic Container Service (Amazon ECS). When the company deploys a new version of the application, the company initially needs to expose 10% of live traffic to the new version. After a period of time, the company needs to immediately route all the remaining live traffic to the new version.
+Which ECS deployment should the company use to meet these requirements? 
+  Ans: Blue/green with canary 
+
+35. A Developer wants to track the performance of an application that runs on a fleet of Amazon EC2
+instances. The Developer wants to view and track statistics across the fleet, such as the average and
+maximum request latency. The Developer would like to be notified immediately if the average response
+time exceeds a threshold. Which solution meets these requirements?
+  Ans: Configure the application to write the response times to a log file. Install and configure the Amazon
+        CloudWatch agent on the instances to stream the application log to CloudWatch Logs. Create a metric
+        filter of the response time from the log. View the metrics graphs in the CloudWatch console. Create a
+        CloudWatch alarm to send an Amazon SNS notification when the average of the response time metric
+        exceeds the threshold.
+
+36. A Developer is testing an application locally and has deployed it to AWS Lambda. To remain under the
+package size limit, the dependencies were not included in the deployment file. When testing the
+application remotely, the function does not execute because of missing dependencies. Which approach would resolve the issue?
+  Ans: Attach a layer to the Lambda function that contains the missing dependencies.
+
+37. A company has moved a legacy on-premises application to AWS by performing a lift and shift. The application exposes a REST API that can be used to retrieve billing information. The application is running on a single Amazon EC2 instance. The application code cannot support concurrent invocations. Many clients access the API, and the company adds new clients all the time.
+A developer is concerned that the application might become overwhelmed by too many requests. The developer needs to limit the number of requests to the API for all current and future clients. The developer must not change the API, the application, or the client code.
+What should the developer do to meet these requirements?
+  Ans: Place the API behind an Amazon API Gateway API. Set the server-side throttling limits.
+
+38. A developer has created a web API that uses Amazon Elastic Container Service (Amazon ECS) and an Application Load Balancer (ALB). An Amazon CloudFront distribution uses the API as an origin for web clients. The application has received millions of requests with a JSON Web Token (JWT) that is not valid in the authorization header. The developer has scaled out the application to handle the unauthenticated requests. What should the developer do to reduce the number of unauthenticated requests to the API?
+  Ans: Create a CloudFront function for the distribution Use the crypto module in the function to validate the JWT.
+
+39. A developer has built an application that inserts data into an Amazon DynamoDB table. The table is configured to use provisioned capacity. The application is deployed on a burstable nano Amazon EC2 Instance. The application logs show that the application has been failing because of a ProvisionedThroughputExceedException error. Which actions should the developer take to resolve this issue? (Choose two.)
+  Ans:  Reduce the frequency of requests to DynamoDB by implement ng exponential backoff.
+        Reduce the frequency of requests to DynamoDB by implement ng exponential backoff.
+
+40. A developer is deploying on application on Amazon EC2 instances that run in Account A. In certain cases, this application needs to read data from a private Amazon S3 bucket in Account B. The developer must provide the application access to the S3 bucket without exposing the S3 bucket to anyone else. Which combination of actions should the developer take to meet these requirements? (Choose two.)
+  Ans: Update the instance profile IAM role in Account A with S3 read permissions. 
+       Configure the bucket policy in Account B to grant permissions to the instance profile role.
+
+41. A developer at a company recently created a serverless application to process and show data from business reports. The application's user interface (UI) allows users to select and start processing the flies. The UI displays a message when the result is available to view. The application uses AWS Step Functions with AWS
+Lambda functions to process the files. The developer used Amazon API Gateway and Lambda functions to create an API to support the UI.
+The company's UI team reports that the request to process a file s often returning timeout errors because of the size or complexity of the files. The UI team wants the API to provide an immediate response so that the UI can display a message while the files are being processed. The backend process that is invoked by the
+API needs to send an email message when the report processing is complete.
+What should the developer do to configure the API to meet these requirements?
+  Ans: Change the API Gateway route to add an X-Amz-Invocation-Type header with a static value of 'Event' in the integration request. Deploy the API Gateway stage to apply the changes
+
+42. A developer needs to create an application that supports Security Assertion Markup Language (SAML) and authentication with social media providers. It must also allow access to AWS services, such as Amazon DynamoDB.
+Which AWS service or feature will meet these requirements with the LEAST amount of additional coding?
+  Ans: Amazon Cognito identity pools
+
+43. A developer received the following error message during an AWS CloudFormation deployment:
+DELETE_FAILED (The following resource(s) failed to delete: [ASGInstanceRolel2345678].)
+Which action should the developer take to resolve this error?
+  Ans: Modify the CloudFormation template to retain the ASGInstanceRolel2345678 resource. Then manually delete the resource after deployment.
+
+44. A software company is using AWS CodeBuild to build an application. The buildspec runs the application build and creates a Docker image that contains the application. The company needs to push the Docker image to Amazon Elastic Container Registry (Amazon ECR) only upon the completion of each successful build.
+Which solution meets these requirements?
+  Ans: Change the buildspec by adding a post_build phase that uses the commands block to push the Docker image.
+
+45. A company is developing a report implemented using AWS Step Functions. Amazon CloudWatch shows errors in the Step Functions task state machine. To troubleshoot each task, the state input needs to be included along with the error message in the state output. Which coding practice can preserve both the original input and the error for the state?
+  Ans: Use ResultPath in a Catch statement to include the error with the original input.
+
+46. A company has an application that runs on AWS Elastic Beanstalk in a load-balanced environment. The company needs to update the instance types in the environment to a more recent generation of instance types. The company must minimize downtime during the deployment of this configuration change.
+Which deployment options will meet these requirements? (Choose two.)
+  Ans:  Rolling based on Health, Immutable
+
+
 
 
 
