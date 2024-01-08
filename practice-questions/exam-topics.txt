@@ -188,6 +188,94 @@ Which solution meets these requirements?
 Which deployment options will meet these requirements? (Choose two.)
   Ans:  Rolling based on Health, Immutable
 
+47. A developer is making changes to a custom application that uses AWS Elastic Beanstalk.
+Which solutions will update the Elastic Beanstalk environment with the new application version after the developer completes the changes? (Choose two.)
+  Ans: Package the application code into a .zip file. Use the AWS Management Console to upload 
+       the zip file and deploy the packaged application. 
+       Package the application code into a .zip file. Use the AWS CLI to create a new application version from the .zip file and to update the environment. 
+
+48. A developer uses a single AWS CloudFormation template to configure the test environment and the production environment for an application. The developer handles environment-specific requirements in the CloudFormation template.
+The developer decides to update the Amazon EC2 Auto Scaling launch template with new Amazon Machine Images (AMIs) for each environment. The
+CloudFormation update for the new AMIs is successful in the test environment, but the update fails in the production environment.
+What are the possible causes of the CloudFormation update failure in the production environment? (Choose two.)
+  Ans: The new AMIs do not fulfill the specified conditions in the CloudFormation template. 
+       CloudFormation does not have sufficient IAM permissions to make the changes. 
+
+49. A developer is creating a serverless web application and maintains different branches of code. The developer wants to avoid updating the Amazon API Gateway target endpoint each time a new code push is performed. What solution would allow the developer to perform a code push efficiently, without the need to update the API Gateway?
+  Ans: Create aliases and versions in AWS Lambda
+
+50. A developer needs to deploy an application running on AWS Fargate using Amazon ECS. The application has environment variables that must be passed to a container for the application to initialize.
+How should the environment variables be passed to the container?
+  Ans: Define an array that includes the environment variables under the environment parameter within the task definition.
+
+51. A developer must extend an existing application that is based on the AWS Serverless Application Model (AWS SAM). The developer has used the AWS SAM CLI to create the project. The project contains different AWS Lambda functions.
+Which combination of commands must the developer use to redeploy the AWS SAM application?
+  Ans: sam build, sam deploy 
+
+52. A developer has a stateful web server on-premises that is being migrated to AWS. The developer must have greater elasticity in the new design.
+How should the developer re-factor the application to make it more elastic? (Choose two.)
+  Ans: Store session state data in an Amazon DynamoDB table
+       Use an ELB with an Auto Scaling group
+
+53. A company has a website that displays a daily newsletter. When a user visits the website, an AWS Lambda function processes the browser's request and queries the company's on-premises database to obtain the current newsletter. The newsletters are stored in English. The Lambda function uses the Amazon Translate
+TranslateText API operation to translate the newsletters, and the translation is displayed to the user.
+Due to an increase in popularity, the website's response time has slowed. The database is overloaded. The company cannot change the database and needs a solution that improves the response time of the Lambda function.
+Which solution meets these requirements?
+  Ans: Cache the translated newsletters in the Lambda /tmp directory.
+
+54. A developer is creating an AWS CloudFormation template for an application. The application includes an Amazon RDS database. The password to be set for the resource's MasterUserPassword property is already stored in AWS Secrets Manager.
+How can the developer reference the value of the password in the CloudFormation template?
+  Ans: Use the secretsmanager dynamic reference by specifying the appropriate reference-key segment
+
+55. A developer has created a new IAM user that has the s3:PutObject permission to write to a specific Amazon S3 bucket. The S3 bucket uses server-side encryption with AWS KMS managed keys (SSE-KMS) as the default encryption. When an application uses the access key and secret key of the IAM user to call the PutObject API operation, the application receives an access denied error.
+What should the developer do to resolve this error?
+  Ans: Update the policy of the IAM user to allow the kms:GenerateDataKey action
+
+56. A company stores documents in Amazon S3 with default settings. A new regulation requires the company to encrypt the documents at rest, rotate the encryption keys annually, and keep a record of when the encryption keys were rotated. The company does not want to manage the encryption keys outside of AWS.
+Which solution will meet these requirements?
+  Ans: Use server-side encryption with AWS KMS managed encryption keys (SSE-KMS). 
+
+57. A developer is using an Amazon Kinesis Data Firehose delivery stream to store data in Amazon S3. Before storing the data in Amazon S3, the developer wants to enrich the data by combining the data with data from an Amazon DynamoDB table. How can the developer implement the data enrichment?
+  Ans: Create a Kinesis Data Firehose data transformation by using an AWS Lambda function. 
+
+58. A company has a website that is developed in PHP and is launched using AWS Elastic Beanstalk. There is a new version of the website that needs to be deployed in the Elastic Beanstalk environment. The company cannot tolerate having the website offline if an update fails. Deployments must have minimal impact and rollback as soon as possible.
+What deployment method should be used?
+  Ans: Immutable 
+
+59. A company is running a web application that is using Amazon Cognito for authentication. The company does not want to use multi-factor authentication (MFA) for all the visitors every time, but the company's security team has concerns about compromised credentials. The development team needs to configure mandatory
+MFA only when suspicious sign-in attempts are detected.
+Which Amazon Cognito feature will meet these requirements?
+  Ans: Adaptive authentication
+
+60. A developer is designing an Amazon DynamoDB table for an application. The application will store user information that includes a unique identifier and an email address for each user. The application must be able to query the table by using either the unique identifier or the email address.
+How should the developer design the DynamoDB table to meet these requirements?
+  Ans: For the primary key of the table, specify the unique identifier as the partition key. Create a global secondary index (GSI) based on the email address.
+
+  61. An application that is hosted on an Amazon EC2 instance needs access to files that are stored in an Amazon S3 bucket. The application lists the objects that are stored in the S3 bucket and displays a table to the user. During testing, a developer discovers that the application does not show any objects in the list. What is the MOST secure way to resolve this issue?
+    Ans: Update the IAM instance profile that is attached to the EC2 instance to include the S3:ListBucket permission for the S3 bucket. 
+
+  62. A developer creates an AWS Lambda function to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic. All message content must be encrypted in transit and at rest between Lambda and Amazon SNS. Which combination of steps should the developer take to meet these requirements? (Choose two.)
+    Ans:  Enable server-side encryption on the SNS topic. 
+          Add a Deny statement to the Lambda execution role. Specify the SNS topic ARN as the resource. Specify "aws:SecureTransport": "false" as the condition.
+
+  63. A developer is using an AWS Key Management Service (AWS KMS) customer master key (CMK) with imported key material to encrypt data in Amazon S3. The developer accidentally deletes the key material of the CMK and is unable to decrypt the data. How can the developer decrypt the data that was encrypted by the CMK?
+    Ans:  Reimport the same key material to the CMK.
+
+  64. A developer needs to launch a new Amazon EC2 instance by using the AWS CLI. Which AWS CLI command should the developer use to meet this requirement?
+    Ans: aws ec2 run instances 
+
+  65. A development team uses AWS Elastic Beanstalk for application deployment. The development team has configured the application version lifecycle policy to limit the number of application versions to 25. However, even with the application version lifecycle policy, the source bundle is deleted from the Amazon S3 source bucket. What should the development team do in the Elastic Beanstalk application version lifecycle settings to retain the source code in the S3 bucket?
+    Ans: Update the Elastic Beanstalk application version lifecycle policy to retain the source bundle in Amazon S3. 
+
+  66. A development team is building a new application that will run on Amazon EC2 and use Amazon DynamoDB as a storage layer. The developers all have assigned IAM user accounts in the same IAM group. The developers currently can launch EC2 instances, and they need to be able to launch EC2 instances with an instance role allowing access to Amazon DynamoDB. Which AWS IAM changes are needed when creating an instance role to provide this functionality?
+    Ans: B. Create an IAM permissions policy attached to the role that allows access to DynamoDAdd a trust policy to the role that allows Amazon EC2 to assume the role. Attach a permissions policy to the development group in AWS IAM that allows developers to use the iam:PassRole permission for the role.
+
+
+  67. A banking application processes thousands of transactions each second. Each transaction payload must have end-to-end encryption. The application encrypts each transaction locally by using the AWS Key Management Service (AWS KMS) GenerateDataKey operation. A developer is testing the application and receives a ThrottlingException error. Which actions are best practices to resolve this error? (Choose two.)
+    Ans: A. Use the LocalCryptoMatenalsCache feature of the AWS Encryption SDK encryption library
+         C. Create a case in the AWS Support Center to increase the quota for the account.
+
+
 
 
 
