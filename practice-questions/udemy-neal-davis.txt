@@ -109,6 +109,86 @@ Ans: Use the AWS CLI put-metric-data command
 32. A Developer is writing an imaging microservice on AWS Lambda. The service is dependent on several libraries that are not available in the Lambda runtime environment.
 Ans: Create a ZIP file with the source code and all dependent libraries
 
+----------------
+
+Practice Test 2 
+
+1. A junior developer has been assigned the project of making updates to a current application using AWS Cloud Development Kit (CDK). How can the developer revert to a previous version if there is an error?
+     Ans: Only make changes in the deployment phase, and never during synthesis
+          (Synthesis is the process of converting AWS CDK stacks to AWS CloudFormation templates and assets. Changes should only be during the deployment phase and after AWS CloudFormation template has been created. This will allow it to roll back the change if there are any problems.)
+
+2. A serverless application uses an IAM role to authenticate and authorize access to an Amazon DynamoDB table. A Developer is troubleshooting access issues affecting the application. The Developer has access to the IAM role that the application is using.
+Which of the following commands will help the Developer to test the role permissions using the AWS CLI?
+     Ans: aws sts assume-role (enable the Developer to assume the role and gain temporary security credentials. The Developer can then use those security credentials to troubleshoot access issues that are affecting the application)
+
+3. A Developer is building a WebSocket API using Amazon API Gateway. The payload sent to this API is JSON that includes an action key which can have multiple values. The Developer must integrate with different routes based on the value of the action key of the incoming JSON payload.
+How can the Developer accomplish this task with the LEAST amount of configuration?
+     Ans: Set the value of the route selection expression to $request.body.action
+
+4. A developer is creating a serverless web application that includes AWS Lambda functions and a REST API deployed using Amazon API Gateway. The developer maintains multiple branches of code. The developer wants to avoid updating the API gateway target endpoint when a new code push is performed.
+What solution would allow the developer to update the Lambda code without needing to update the REST API configuration?
+     Ans: Create aliases and versions in AWS Lambda
+
+5. Twelve months ago, an organization requested a public certificate for their domain via AWS Certificate Manager (ACM). It was validated using DNS validation. What will ACM do prior to expiration? (Select TWO.)
+     Ans: If the certificate is being used by an AWS service and ACM-provided CNAME records are accessible via the public DNS, ACM will consider the domain name validated and auto renew the certificate
+     If the domain is not validated, it will send Health events or EventBridge events to notify the domain owner prior to expiration
+
+6. A start-up organization imported their X.509 certificate from another issuer into AWS Certificate Manager (ACM) approximately 11 months ago. What needs to be done to ensure that visitors will continue to have secure access to the website? (Select TWO.)
+     Ans: A new certificate will need to be requested from ACM
+          A new certificate will need to be imported into ACM
+
+7. A Developer has created an Amazon S3 bucket and uploaded some objects that will be used for a publicly available static website. What steps MUST be performed to configure the bucket as a static website? (Select TWO.)
+     Ans: Upload an index document and enter the name of the index document when enabling static website hosting
+          Enable public access and grant everyone the s3:GetObject permissions
+
+8. A company has deployed a REST API using Amazon API Gateway with a Lambda authorizer. The company needs to log who has accessed the API and how the caller accessed the API. They also require logs that include errors and execution traces for the Lambda authorizer. Which combination of actions should the Developer take to meet these requirements? (Select TWO.)
+     Ans: Enable API Gateway execution logging
+          Enable API Gateway access logs
+     
+9. A company maintains a REST API service using Amazon API Gateway with native API key validation. The company recently launched a new registration page, which allows users to sign up for the service. The registration page creates a new API key using CreateApiKey and sends the new key to the user. When the user attempts to call the API using this key, the user receives a 403 Forbidden error. Existing users are unaffected and can still call the API. What code updates will grant these new users’ access to the API?
+     Ans: The createUsagePlanKey method must be called to associate the newly created API key with the correct usage plan
+
+10. An AWS Lambda function is being developed in a VPC. When a file is added to an Amazon S3 bucket, this Lambda function is triggered, processes the file, and logs the results into a file. These result and log files need to be accessible by other AWS services and on-premises resources.
+What should the developer use to meet these requirements?
+     Ans: Keep the result and log files in Amazon Elastic File System (EFS) accessible by Lambda functions
+
+11. An application running on Amazon EC2 generates a large number of small files (1KB each) containing personally identifiable information that must be converted to ciphertext. The data will be stored on a proprietary network-attached file system. What is the SAFEST way to encrypt the data using AWS KMS?
+     Ans: Encrypt the data directly with a customer managed customer master key
+
+12. A developer received the following error message during an AWS CloudFormation deployment:
+DELETE_FAILED (The following resource(s) failed to delete: (sg-11223344).)
+Which action should the developer take to resolve this error?
+     Ans: Modify the CloudFormation template to retain the security group resource. Then manually delete the resource after deployment
+
+13. A developer is using AWS AppConfig to deploy an application. The application's data needs to be encrypted when at rest. Which statement describes how this requirement is met?
+     Ans: Data is automatically encrypted using AWS owned keys. This cannot be disabled. The developer can add an additional layer of encryption using customer managed keys
+
+14. A company runs a popular website behind an Amazon CloudFront distribution that uses an Application Load Balancer as the origin. The Developer wants to set up custom HTTP responses to 404 errors for content that has been removed from the origin that redirects the users to another page.
+The Developer wants to use an AWS Lambda@Edge function that is associated with the current CloudFront distribution to accomplish this goal. The solution must use a minimum amount of resources. Which CloudFront event type should the Developer use to invoke the Lambda@Edge function that contains the redirect logic?
+     Ans: Origin responses
+
+15. A development team is working with Amazon MemoryDB for Redis. The team lead wants to limit the default access of the service-linked role and implement a custom-managed policy instead. What needs to be done prior to making this change?
+     Ans: The team lead would need to have permission to call `iam:createServiceLinkedRole
+
+16. A new application will be hosted on the domain name dctlabs.com using an Amazon API Gateway REST API front end. The Developer needs to configure the API with a path to dctlabs.com/products that will be accessed using the HTTP GET verb. How MUST the Developer configure the API? (Select TWO
+     Ans: Create a /products resource
+          Create a GET method
+
+17. A developer is configuring health checks using Amazon Route 53 and needs to set values to determine the health of critical endpoints. What is the parameter that Amazon Route 53 reviews before deciding if an endpoint is unhealthy?
+     Ans: failure threshold
+
+18. A start-up has launched a website using Route 53 for domain name, routing, and health checks. They failed to configure Amazon CloudWatch alarms with the health checks. How can the organization be made aware of any endpoint health issues?
+     Ans: They can see the status of Route 53 health checks on the Route 53 dashboard
+
+19. Customers who use a REST API have reported performance issues. A Developer needs to measure the time between when API Gateway receives a request from a client and when it returns a response to the client. Which metric should the Developer monitor?
+     Ans: Latency (Latency = integration latency + other gateway overhead)
+
+20. A company is deploying a serverless application on AWS, using an AWS Lambda function for handling customer orders. This function utilizes an external HTTP API for processing payments, which occasionally times out. The requirement is to notify the support team via an existing Amazon SNS topic when the error rate of this API surpasses 10% per hour. How can this be achieved?
+     Ans: Implement Amazon CloudWatch Metrics with a custom threshold and link it to the existing SNS topic
+
+21. A Developer is deploying an application using Docker containers running on the Amazon Elastic Container Service (ECS). The Developer is testing application latency and wants to capture trace information between the microservices. Which solution will meet these requirements?
+     Ans: Create a Docker image that runs the X-Ray daemon, upload it to a Docker image repository, and then deploy it to the Amazon ECS cluster.
+
 
 
 
