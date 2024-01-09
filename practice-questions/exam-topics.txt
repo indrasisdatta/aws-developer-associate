@@ -251,32 +251,96 @@ Which Amazon Cognito feature will meet these requirements?
 How should the developer design the DynamoDB table to meet these requirements?
   Ans: For the primary key of the table, specify the unique identifier as the partition key. Create a global secondary index (GSI) based on the email address.
 
-  61. An application that is hosted on an Amazon EC2 instance needs access to files that are stored in an Amazon S3 bucket. The application lists the objects that are stored in the S3 bucket and displays a table to the user. During testing, a developer discovers that the application does not show any objects in the list. What is the MOST secure way to resolve this issue?
-    Ans: Update the IAM instance profile that is attached to the EC2 instance to include the S3:ListBucket permission for the S3 bucket. 
+61. An application that is hosted on an Amazon EC2 instance needs access to files that are stored in an Amazon S3 bucket. The application lists the objects that are stored in the S3 bucket and displays a table to the user. During testing, a developer discovers that the application does not show any objects in the list. What is the MOST secure way to resolve this issue?
+  Ans: Update the IAM instance profile that is attached to the EC2 instance to include the S3:ListBucket permission for the S3 bucket. 
 
-  62. A developer creates an AWS Lambda function to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic. All message content must be encrypted in transit and at rest between Lambda and Amazon SNS. Which combination of steps should the developer take to meet these requirements? (Choose two.)
-    Ans:  Enable server-side encryption on the SNS topic. 
-          Add a Deny statement to the Lambda execution role. Specify the SNS topic ARN as the resource. Specify "aws:SecureTransport": "false" as the condition.
+62. A developer creates an AWS Lambda function to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic. All message content must be encrypted in transit and at rest between Lambda and Amazon SNS. Which combination of steps should the developer take to meet these requirements? (Choose two.)
+  Ans:  Enable server-side encryption on the SNS topic. 
+        Add a Deny statement to the Lambda execution role. Specify the SNS topic ARN as the resource. Specify "aws:SecureTransport": "false" as the condition.
 
-  63. A developer is using an AWS Key Management Service (AWS KMS) customer master key (CMK) with imported key material to encrypt data in Amazon S3. The developer accidentally deletes the key material of the CMK and is unable to decrypt the data. How can the developer decrypt the data that was encrypted by the CMK?
-    Ans:  Reimport the same key material to the CMK.
+63. A developer is using an AWS Key Management Service (AWS KMS) customer master key (CMK) with imported key material to encrypt data in Amazon S3. The developer accidentally deletes the key material of the CMK and is unable to decrypt the data. How can the developer decrypt the data that was encrypted by the CMK?
+  Ans:  Reimport the same key material to the CMK.
 
-  64. A developer needs to launch a new Amazon EC2 instance by using the AWS CLI. Which AWS CLI command should the developer use to meet this requirement?
-    Ans: aws ec2 run instances 
+64. A developer needs to launch a new Amazon EC2 instance by using the AWS CLI. Which AWS CLI command should the developer use to meet this requirement?
+  Ans: aws ec2 run instances 
 
-  65. A development team uses AWS Elastic Beanstalk for application deployment. The development team has configured the application version lifecycle policy to limit the number of application versions to 25. However, even with the application version lifecycle policy, the source bundle is deleted from the Amazon S3 source bucket. What should the development team do in the Elastic Beanstalk application version lifecycle settings to retain the source code in the S3 bucket?
-    Ans: Update the Elastic Beanstalk application version lifecycle policy to retain the source bundle in Amazon S3. 
+65. A development team uses AWS Elastic Beanstalk for application deployment. The development team has configured the application version lifecycle policy to limit the number of application versions to 25. However, even with the application version lifecycle policy, the source bundle is deleted from the Amazon S3 source bucket. What should the development team do in the Elastic Beanstalk application version lifecycle settings to retain the source code in the S3 bucket?
+  Ans: Update the Elastic Beanstalk application version lifecycle policy to retain the source bundle in Amazon S3. 
 
-  66. A development team is building a new application that will run on Amazon EC2 and use Amazon DynamoDB as a storage layer. The developers all have assigned IAM user accounts in the same IAM group. The developers currently can launch EC2 instances, and they need to be able to launch EC2 instances with an instance role allowing access to Amazon DynamoDB. Which AWS IAM changes are needed when creating an instance role to provide this functionality?
-    Ans: B. Create an IAM permissions policy attached to the role that allows access to DynamoDAdd a trust policy to the role that allows Amazon EC2 to assume the role. Attach a permissions policy to the development group in AWS IAM that allows developers to use the iam:PassRole permission for the role.
-
-
-  67. A banking application processes thousands of transactions each second. Each transaction payload must have end-to-end encryption. The application encrypts each transaction locally by using the AWS Key Management Service (AWS KMS) GenerateDataKey operation. A developer is testing the application and receives a ThrottlingException error. Which actions are best practices to resolve this error? (Choose two.)
-    Ans: A. Use the LocalCryptoMatenalsCache feature of the AWS Encryption SDK encryption library
-         C. Create a case in the AWS Support Center to increase the quota for the account.
+66. A development team is building a new application that will run on Amazon EC2 and use Amazon DynamoDB as a storage layer. The developers all have assigned IAM user accounts in the same IAM group. The developers currently can launch EC2 instances, and they need to be able to launch EC2 instances with an instance role allowing access to Amazon DynamoDB. Which AWS IAM changes are needed when creating an instance role to provide this functionality?
+  Ans: B. Create an IAM permissions policy attached to the role that allows access to DynamoDAdd a trust policy to the role that allows Amazon EC2 to assume the role. Attach a permissions policy to the development group in AWS IAM that allows developers to use the iam:PassRole permission for the role.
 
 
+67. A banking application processes thousands of transactions each second. Each transaction payload must have end-to-end encryption. The application encrypts each transaction locally by using the AWS Key Management Service (AWS KMS) GenerateDataKey operation. A developer is testing the application and receives a ThrottlingException error. Which actions are best practices to resolve this error? (Choose two.)
+  Ans: A. Use the LocalCryptoMatenalsCache feature of the AWS Encryption SDK encryption library
+        C. Create a case in the AWS Support Center to increase the quota for the account.
 
+68. A company is migrating a web application from on premises to AWS. The company needs to move session storage from the application code to a shared service as part of the migration. The session storage data must be encrypted at rest. Which AWS services meet these requirements? (Choose two.)
+  Ans: Amazon ElastiCache for Redis
+      Amazon DynamoDB
+
+69. A developer is storing many objects in a single Amazon S3 bucket. The developer needs to optimize the S3 bucket for high request rates. How should the developer store the objects to meet this requirement?
+  Ans:  Store the objects by using object key names distributed across multiple prefixes
+
+70. A company has a serverless application that uses AWS Lambda functions and AWS Systems Manager parameters to store configuration data. The company moves the Lambda functions inside the VPC and into private subnets. The Lambda functions are now producing errors in their attempts to access Systems Manager parameters.
+Which solution will allow the Lambda functions to access Systems Manager parameters inside the VPC?
+  Ans: Create an interface VPC endpoint for Systems Manager
+
+71. A developer wants to use AWS CodeDeploy to deploy an Amazon Elastic Container Service (Amazon ECS) service. What are the MINIMUM properties required in the 'resources' section of the AppSpec file for CodeDeploy to deploy the ECS service successfully?
+  Ans: TaskDefimtion, ContainerName, and ContainerPort
+
+72. A developer is writing a web application that is deployed on Amazon EC2 instances behind an internet-facing Application Load Balancer (ALB). The developer must add an Amazon CloudFront distribution in front of the ALB. The developer also must ensure that customer data from outside the VPC is encrypted in transit.
+Which combination of CloudFront configuration settings should the developer use to meet these requirements?
+  Ans: Set the Origin Protocol Policy setting to Match Viewer.
+       Set the Viewer Protocol Policy setting to Redirect HTTP to HTTPS
+
+73. A financial company must store original customer records for 10 years for legal reasons. A complete record contains personally identifiable information (PII). According to local regulations. PII is available to only certain people in the company and must not be shared with third parties. The company needs to make the records available to third-party organizations for statistical analysis without sharing the PII.
+A developer wants to store the original immutable record in Amazon S3. Depending on who accesses the S3 document, the document should be returned as is or with all the PII removed. The developer has written an AWS Lambda function to remove the PII from the document. The function is named removePii.
+What should the developer do so that the company can meet the PII requirements while maintaining only one copy of the document?
+  Ans: Create an S3 Object Lambda access point from the S3 console. Select the removePii function. Use S3 Access Points to access the object without PII.
+
+74. A developer is using AWS Elastic Beanstalk to create a deployment for a web application that supports ecommerce. According to a company requirement. Amazon EC2 instances that host one version of the application must be retired when the deployment of a new version is complete.
+Which deployment methods can the developer use to meet this requirement? (Choose two.)
+  Ans: Blue/green deployment 
+       Immutable deployment 
+
+75. A developer is designing a serverless application that customers use to select seats for a concert venue. Customers send the ticket requests to an Amazon API Gateway API with an AWS Lambda function that acknowledges the order and generates an order ID. The application includes two additional Lambda functions: one for inventory management and one for payment processing. These two Lambda functions run in parallel and write the order to an Amazon Dynamo DB table.
+The application must provide seats to customers according to the following requirements. If a seat is accidently sold more than once, the first order that the application received must get the seat. In these cases, the application must process the payment for only the first order. However, if the first order is rejected during payment processing, the second order must get the seat. In these cases, the application must process the payment for the second order.
+Which solution will meet these requirements?
+  Ans: Send the order ID to an Amazon Simple Notification Service (Amazon SNS) FIFO topic that fans out to one Amazon Simple Queue Service (Amazon SQS) FIFO queue for inventory management and another SQS FIFO queue for payment processing
+
+76. A developer wants to implement authentication using Amazon Cognito user pools for an existing API in Amazon API Gateway. After creating the Amazon Cognito user pool, the developer tests the GET request to the API. Unauthenticated requests to the API return a 200 OK status response.
+Which combination of additional steps are required to complete the authentication implementation? (Choose two.)
+  Ans: Create an Amazon Cognito authorizer in API Gateway and specify the Amazon Cognito user pool
+       Specify the authorizer in the GET method section of API Gateway and redeploy the API
+
+77. A developer is creating an Amazon DynamoDB table. The entire table must be encrypted at rest. Which solution will meet this requirement MOST cost-effectively?
+  Ans: Create the DynamoDB table by using default encryption settings
+
+78. A company configures an Amazon S3 bucket to deliver S3 object events to Amazon EventBridge (Amazon CloudWatch Events). An EventBridge rule invokes an AWS Lambda function for each object event that is received from the S3 bucket.
+A developer is working on a new version of the Lambda function. To ensure that the new Lambda function works as expected, the developer must run a repeatable test that uses realistic S3 bucket object events. The developer must minimize the amount of code and infrastructure that are required to support the test.
+Which solution will meet these requirements?
+  Ans: Use EventBridge to archive and replay production S3 object events. Set up a new EventBridge rule to deliver replayed S3 object events to the new Lambda function.
+
+79. A company is using an Amazon API Gateway REST API endpoint as a webhook to publish events from an on-premises source control management (SCM) system to Amazon EventBridge (Amazon CloudWatch Events). The company has configured an EventBridge (CloudWatch Events) rule to listen for the events and to control application deployment in a central AWS account. The company needs to receive the same events across multiple receiver AWS accounts.
+How can a developer meet these requirements without changing the configuration of the SCM system?
+  Ans: Grant permission to the central AWS account for EventBridge (CloudWatch Events)to access the receiver AWS accounts. Add an EventBridge (CloudWatch Events) event bus on the receiver AWS accounts as the targets to the existing EventBridge (CloudWatch Events) rule
+
+80. A company is developing an application that will be accessed through the Amazon API Gateway REST API. Registered users should be the only ones who can access certain resources of this API. The token being used should expire automatically and needs to be refreshed periodically.
+How can a developer meet these requirements?
+  Ans: Create an Amazon Cognito user pool, configure the Cognito Authorizer in API Gateway, and use the identity or access token
+
+81. A company has an Amazon S3 bucket that contains sensitive data. The data must be encrypted in transit and at rest. The company encrypts the data in the S3 bucket by using an AWS Key Management Service (AWS KMS) key. A developer needs to grant several other AWS accounts the permission to use the S3 GetObject operation to retrieve the data from the S3 bucket.
+How can the developer enforce that all requests to retrieve the data provide encryption in transit?
+  Ans: Define a resource-based policy on the S3 bucket to deny access when a request meets the condition "aws:SecureTransport": "false"
+
+82. A developer is deploying an application in the AWS Cloud by using AWS CloudFormation. The application will connect to an existing Amazon RDS database. The hostname of the RDS database is stored in AWS Systems Manager Parameter Store as a plaintext value. The developer needs to incorporate the database hostname into the CloudFormation template to initialize the application when the stack is created.
+How should the developer reference the parameter that contains the database hostname?
+  Ans: Use the ssm dynamic reference
+
+83. A developer is building a new complex application on AWS. The application consists of multiple microservices hosted on Amazon EC2. The developer wants to determine which microservice adds the most latency while handling a request.
+Which method should the developer use to make this determination?
+  Ans: Instrument each microservice request using the AWS X-Ray SDK. Examine the annotations associated with the requests.
 
 
 
