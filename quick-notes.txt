@@ -1,10 +1,26 @@
+Course Materials:
+
+1. Udemy Stephane Marek
+   https://cognizant.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/19732226#overview
+
+2. Github notes 
+   https://github.com/itsmostafa/certified-aws-developer-associate-notes
+
 Practice Questions:
 
-1. Github
-https://github.com/Ditectrev/Amazon-Web-Services-AWS-Developer-Associate-DVA-C02-Practice-Tests-Exams-Questions-Answers?tab=readme-ov-file#which-of-the-following-are-good-use-cases-for-how-amazon-elasticache-can-help-an-application-select-two
+1. Exam Topics
+   https://www.examtopics.com/exams/amazon/aws-certified-developer-associate/view/
 
-2. YouTube 
+2. Github
+   https://github.com/Ditectrev/Amazon-Web-Services-AWS-Developer-Associate-DVA-C02-Practice-Tests-Exams-Questions-Answers?tab=readme-ov-file#which-of-the-following-are-good-use-cases-for-how-amazon-elasticache-can-help-an-application-select-two
+
+3. YouTube 
    Sthithapragna: https://www.youtube.com/watch?v=zca2PBxzwqI&list=PL7GozF-qZ4KdpXCIcPKeBf5rljY8OM4gU
    Peaceofcode: https://www.youtube.com/watch?v=TiXdgFfAkdM&list=PLviC8AFqAj5BlrBNOHEUd5OTyltKS74P2
 
-3. Udemy Practice tests
+4. Udemy Practice tests
+   Neal Davis:
+   https://cognizant.udemy.com/course/aws-developer-associate-practice-exams/learn/quiz/4852734#overview
+
+   Stephane Marek:
+   https://cognizant.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/learn/quiz/4540356#overview
