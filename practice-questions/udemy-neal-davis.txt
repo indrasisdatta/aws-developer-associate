@@ -109,7 +109,7 @@ Ans: Use the AWS CLI put-metric-data command
 32. A Developer is writing an imaging microservice on AWS Lambda. The service is dependent on several libraries that are not available in the Lambda runtime environment.
 Ans: Create a ZIP file with the source code and all dependent libraries
 
-----------------
+------------------------------------------------------------------------------------------------
 
 Practice Test 2 
 
@@ -189,8 +189,99 @@ The Developer wants to use an AWS Lambda@Edge function that is associated with t
 21. A Developer is deploying an application using Docker containers running on the Amazon Elastic Container Service (ECS). The Developer is testing application latency and wants to capture trace information between the microservices. Which solution will meet these requirements?
      Ans: Create a Docker image that runs the X-Ray daemon, upload it to a Docker image repository, and then deploy it to the Amazon ECS cluster.
 
+------------------------------------------------------------------------------------------------
 
+Practice Test 3 
 
+1. A Developer is creating a DynamoDB table for storing application logs. The table has 5 write capacity units (WCUs). The Developer needs to configure the read capacity units (RCUs) for the table. Which of the following configurations represents the most efficient use of throughput? 
+     Ans: Eventually consistent reads of 5 RCUs reading items that are 4 KB in size
+
+2. An application uses an Auto Scaling group of Amazon EC2 instances, an Application Load Balancer (ALB), and an Amazon Simple Queue Service (SQS) queue. An Amazon CloudFront distribution caches content for global users. A Developer needs to add in-transit encryption to the data by configuring end-to-end SSL between the CloudFront Origin and the end users.
+How can the Developer meet this requirement? (Select TWO.)
+     Ans: Configure the Viewer Protocol Policy (Enable SSL between end user and Cloudfront)
+          Configure the Origin Protocol Policy (Enable SSL between origin and distribution)
+
+3. A Developer is designing a fault-tolerant environment where client sessions will be saved. How can the Developer ensure that no sessions are lost if an Amazon EC2 instance fails?
+     Ans: Use Amazon DynamoDB to perform scalable session handling 
+
+4. A developer plan to deploy an application on Amazon ECS that uses the AWS SDK to make API calls to Amazon DynamoDB. In the development environment the application was configured with access keys. The application is now ready for deployment to a production cluster.
+How should the developer configure the application to securely authenticate to AWS services?
+     Ans: Configure an ECS task IAM role for the application to use
+
+5. An application uses both Amazon EC2 instances and on-premises servers. The on-premises servers are a critical component of the application, and a developer wants to collect metrics and logs from these servers. The developer would like to use Amazon CloudWatch. How can the developer accomplish this?
+     Ans: Install the CloudWatch agent on the on-premises servers and specify IAM credentials with permissions to CloudWatch
+
+6. A gaming company is building an application to track the scores for their games using an Amazon DynamoDB table. Each item in the table is identified by a partition key
+(user_id) and a sort key (game_name). The table also includes the attribute “TopScore”.
+A Developer has been asked to write a leaderboard application to display the highest achieved scores for each game (game_name), based on the score identified in the “TopScore” attribute.
+What process will allow the Developer to extract results MOST efficiently from the DynamoDB table?
+     Ans: Create a global secondary index with a partition key of “game_name” and a sort key of “TopScore” and get the results based on the score attribute
+
+7. A company is planning to use AWS CodeDeploy to deploy a new AWS Lambda function. What are the MINIMUM properties required in the 'resources' section of the AppSpec file for CodeDeploy to deploy the function successfully?
+     Ans: name, alias, currentversion, and targetversion
+
+8. A financial application is hosted on an Auto Scaling group of EC2 instance with an Elastic Load Balancer. A Developer needs to capture information about the IP traffic going to and from network interfaces in the VPC. How can the Developer capture this information?
+     Ans: Create a flow log in the VPC and publish data to Amazon S3 (can also be published in Cloudwatch logs)
+
+9. An application is being migrated into the cloud. The application is stateless and will run on a fleet of Amazon EC2 instances. The application should scale elastically. How can a Developer ensure that the number of instances available is sufficient for current demand?
+     Ans: Create a launch configuration and use Amazon EC2 Auto Scaling
+
+10. A Developer is designing a cloud native application. The application will use several AWS Lambda functions that will process items that the functions read from an event source. Which AWS services are supported for Lambda event source mappings? (Select THREE.)
+     Ans: Kinesis, SQS, DynamoDB 
+
+11. A Developer is creating an AWS Lambda function that will process data from an Amazon Kinesis data stream. The function is expected to be invoked 50 times per second and take 100 seconds to complete each request. What MUST the Developer do to ensure the functions runs without errors?
+     Ans: Contact AWS and request to increase the limit for concurrent executions
+     [Concurrency limit cannot be increased as default account limit of 1,000 concurrent executions will mean you can only assign up to 900 executions to the function (100 must be left unreserved)]
+
+12. A company is running a web application on Amazon EC2 behind an Elastic Load Balancer (ELB). The company is concerned about the security of the web application and would like to secure the application with SSL certificates. The solution should not have any performance impact on the EC2 instances. What steps should be taken to secure the web application? (Select TWO.)
+     Ans: Add an SSL certificate to the Elastic Load Balancer
+          Configure the Elastic Load Balancer for SSL termination
+
+13. A team of Developers are building a continuous integration and delivery pipeline using AWS Developer Tools. Which services should they use for running tests against source code and installing compiled code on their AWS resources? (Select TWO.)
+     Ans: AWS CodeBuild for running tests against source code
+          AWS CodeDeploy for installing compiled code on their AWS resources
+
+14. A Development team has deployed several applications running on an Auto Scaling fleet of Amazon EC2 instances. The Operations team have asked for a display that shows a key performance metric for each application on a single screen for monitoring purposes.
+What steps should a Developer take to deliver this capability using Amazon CloudWatch?
+     Ans: Create a custom namespace with a unique metric name for each application
+
+15. An application uses Amazon API Gateway, an AWS Lambda function and a DynamoDB table. The developer requires that another Lambda function is triggered when an item lifecycle activity occurs in the DynamoDB table. How can this be achieved?
+     Ans: Enable a DynamoDB stream and trigger the Lambda function synchronously from the stream
+
+16. An application has been instrumented to use the AWS X-Ray SDK to collect data about the requests the application serves. The Developer has set the user field on segments to a string that identifies the user who sent the request.
+How can the Developer search for segments associated with specific users?
+     Ans: By using the GetTraceSummaries API with a filter expression
+
+17. A company wants to implement authentication for its new REST service using Amazon API Gateway. To authenticate the calls, each request must include HTTP headers with a client ID and user ID. These credentials must be compared to authentication data in an Amazon DynamoDB table.
+What MUST the company do to implement this authentication in API Gateway?
+     Ans: Implement an AWS Lambda authorizer that references the DynamoDB authentication table
+
+18. An application is instrumented to generate traces using AWS X-Ray and generates a large amount of trace data. A Developer would like to use filter expressions to filter the results to specific key-value pairs added to custom subsegments.
+How should the Developer add the key-value pairs to the custom subsegments?
+     Ans: Add annotations to the custom subsegments (Annotations are indexed for use with filter expressions)
+
+19. A Developer is creating a database solution using an Amazon ElastiCache caching layer. The solution must provide strong consistency to ensure that updates to product data are consistent between the backend database and the ElastiCache cache. Low latency performance is required for all items in the database. Which cache writing policy will satisfy these requirements?
+     Ans: Use a write-through caching strategy
+
+20. An engineer is constructing an AWS Lambda function and intends to log specific key events that transpire during the function's execution. To correlate the events with a particular function invocation, the engineer is looking to incorporate a unique identifier.
+The following code segment has been added to the Lambda function:
+     function handler (event, context) {
+
+     }
+     Ans: Use context.awsRequestId within the function to fetch the unique identifier associated with each invocation
+
+21. A Developer has completed some code updates and needs to deploy the updates to an Amazon Elastic Beanstalk environment. The environment includes twelve Amazon EC2 instances and there can be no reduction in application performance and availability during the update.
+Which deployment policy is the most cost-effective choice to suit these requirements?
+     Ans: Rolling with additional batch
+
+22. An Amazon API Gateway API developer aims to integrate request validation in a production setting but wants to test it before deployment. Which of the following methods offers the least operational overhead for testing via a tool by sending test requests?
+     Ans: Modify the existing API to include request validation, deploy this to a new API Gateway stage, test it, then deploy it to the production stage
+
+23. A website is running on a single Amazon EC2 instance. A Developer wants to publish the website on the Internet and is creating an A record on Amazon Route 53 for the website’s public DNS name.
+What type of IP address MUST be assigned to the EC2 instance and used in the A record to ensure ongoing connectivity?
+     Ans: Elastic IP (public address that is static)
+
+------------------------------------------------------------------------------------------------
 
 
 
