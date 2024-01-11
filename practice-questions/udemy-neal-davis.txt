@@ -386,9 +386,75 @@ How can a Developer decouple the application to prevent loss of messages?
 What would be the BEST approach to MINIMIZING cost?
      Ans: Set the Imaging queue ReceiveMessageWaitTimeSeconds attribute to 20 seconds
 
+------------------------------------------------------------------------------------------------
 
+Practice test 5
 
+1. A multimedia streaming service wants to migrate its user authentication system to AWS. The system keeps user session data during an active session, which is crucial for seamless user experience. The new system needs to be fault-tolerant, highly scalable natively, and any service disruption must not affect user experience.
+What is the best option to store the user session data?
+     Ans: Store the user session data in Amazon ElastiCache
 
+2. An AWS Lambda function must be connected to an Amazon VPC private subnet that does not have Internet access. The function also connects to an Amazon DynamoDB table. What MUST a Developer do to enable access to the DynamoDB table?
+     Ans: VPC endpoint
+
+3. A Developer has joined a team and needs to connect to the AWS CodeCommit repository using SSH. What should the Developer do to configure access using Git?
+     Ans: Generate an SSH public and private key. Upload the public key to the Developer’s IAM account
+
+4. A Developer has created a serverless function that processes log files. The function should be invoked once every 15 minutes. How can the Developer automatically invoke the function using serverless services?
+     Ans: Create an Amazon CloudWatch Events rule that is scheduled to run and invoke the function
+
+5. A three-tier application is being migrated from an on-premises data center. The application includes an Apache Tomcat web tier, an application tier running on Linux, and a MySQL back end. A Developer must refactor the application to run on the AWS cloud. The cloud-based application must be fault tolerant and elastic.
+How can the Developer refactor the web tier and application tier? (Select TWO.)
+     Ans: Create an Auto Scaling group of EC2 instances for both the web tier and application tier
+     Implement an Elastic Load Balancer for both the web tier and the application tier
+
+6. An online multiplayer game employs Amazon API Gateway WebSocket APIs with an HTTP backend. The game developer needs to add a feature that identifies players with unstable connections who repeatedly join and leave the game. The developer also wants the ability to disconnect such players from the game.
+What two modifications should the developer implement in the game to fulfill these requirements? (Select TWO.)
+     Ans: Implement $connect and $disconnect routes in the backend service
+          Add logic to track the player's connection status using Amazon DynamoDB in the backend service
+
+7. A Developer is managing an application that includes an Amazon SQS queue. The consumers that process the data from the queue are connecting in short cycles and the queue often does not return messages. The cost for API calls is increasing. How can the Developer optimize the retrieval of messages and reduce cost?
+     Ans: Call the ReceiveMessage API with the WaitTimeSeconds parameter set to 20
+
+8. How can a Developer view a summary of proposed changes to an AWS CloudFormation stack without implementing the changes in production?
+     Ans: create a change set 
+
+9. A monitoring application that keeps track of a large eCommerce website uses Amazon Kinesis for data ingestion. During periods of peak data rates, the Kinesis stream cannot keep up with the incoming data.
+What step will allow Kinesis data streams to accommodate the traffic during peak hours?
+     Ans: Increase the shard count of the stream using UpdateShardCount
+
+10. What does an Amazon SQS delay queue accomplish?
+     Ans: Messages are hidden for a configurable amount of time when they are first added to the queue
+
+11. An Amazon Kinesis Data Stream has recently been configured to receive data from sensors in a manufacturing facility. A consumer EC2 instance is configured to process the data every 48 hours and save processing results to an Amazon RedShift data warehouse. Testing has identified a large amount of data is missing. A review of monitoring logs has identified that the sensors are sending data correctly and the EC2 instance is healthy. What is the MOST likely explanation for this issue?
+     Ans: Records are retained for 24 hours in the Kinesis Data Stream by default
+
+12. A Developer needs to restrict all users and roles from using a list of API actions within a member account in AWS Organizations. The Developer needs to deny access to a few specific API actions. What is the MOST efficient way to do this?
+     Ans: Create a deny list and specify the API actions to deny
+
+13. A Developer needs to run some code using Lambda in response to an event and forward the execution result to another application using a pub/sub notification.
+How can the Developer accomplish this?
+     Ans: Configure a Lambda “on success” destination and route the execution results to Amazon SNS
+
+14. A Developer is writing an AWS Lambda function that processes records from an Amazon Kinesis Data Stream. The Developer must write the function so that it sends a notice to Administrators if it fails to process a batch of records.
+How should the Developer write the function?
+     Ans: Configure an Amazon SNS topic as an on-failure destination
+
+15. A Developer has created an AWS Lambda function in a new AWS account. The function is expected to be invoked 40 times per second and the execution duration will be around 100 seconds. What MUST the Developer do to ensure there are no errors?
+     Ans: Contact AWS Support to increase the concurrent execution limits
+
+16. A Developer is migrating Docker containers to Amazon ECS. A large number of containers will be deployed across some newly deployed ECS containers instances using the same instance type. High availability is provided within the microservices architecture. Which task placement strategy requires the LEAST configuration for this scenario?
+     Ans: random (requires least configuration)
+
+17. A Developer has setup an Amazon Kinesis Data Stream with 6 shards to ingest a maximum of 2000 records per second. An AWS Lambda function has been configured to process these records. In which order will these records be processed?
+     Ans: Lambda will receive each record in the exact order it was placed into the shard. There is no guarantee of order across shards
+
+18. A Developer is deploying an Amazon ECS update using AWS CodeDeploy. In the appspec.yaml file, which of the following is a valid structure for the order of hooks that should be specified?
+     Ans: BeforeInstall > AfterInstall > AfterAllowTestTraffic > BeforeAllowTraffic > AfterAllowTraffic
+
+19. A Development team are deploying an AWS Lambda function that will be used by a production application. The function code will be updated regularly, and new versions will be published. The development team do not want to modify application code to point to each new version.
+How can the Development team setup a static ARN that will point to the latest published version?
+     Ans: Setup an Alias that will point to the latest version
 
 
 
