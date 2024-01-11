@@ -283,6 +283,108 @@ What type of IP address MUST be assigned to the EC2 instance and used in the A r
 
 ------------------------------------------------------------------------------------------------
 
+Practice test 4
+
+1. A Developer has updated an AWS Lambda function and published a new version. To ensure the code is working as expected the Developer needs to initially direct a percentage of traffic to the new version and gradually increase this over time. It is important to be able to rollback if there are any issues reported.
+What is the BEST way the Developer can implement the migration to the new version SAFELY?
+     Ans: Create an Alias, assign the current and new versions and use traffic shifting to assign a percentage of traffic to the new version
+
+2. A company is creating a REST service using an Amazon API Gateway with AWS Lambda integration. The service must run different versions for testing purposes.
+What would be the BEST way to accomplish this?
+     Ans: Deploy the API version as unique stages with unique endpoints and use stage variables to provide further context
+
+3. A Developer manages a monitoring service for a fleet of IoT sensors in a major city. The monitoring application uses an Amazon Kinesis Data Stream with a group of EC2 instances processing the data. Amazon CloudWatch custom metrics show that the instances a reaching maximum processing capacity and there are insufficient shards in the Data Stream to handle the rate of data flow.
+What course of action should the Developer take to resolve the performance issues?
+     Ans: Increase the EC2 instance size and add shards to the stream
+
+4. A developer is in the process of revising multiple AWS Lambda functions and notes that these functions utilize the same bespoke libraries. The developer intends to centralize these libraries, implement updates with minimal effort, and keep the libraries version controlled.
+Which solution aligns with these needs while requiring the least development effort?
+     Ans: Create a Lambda layer including all the custom libraries
+
+5. A development team have deployed a new application and users have reported some performance issues. The developers need to enable monitoring for specific metrics with a data granularity of one second. How can this be achieved?
+     Ans: Create custom metrics and configure them as high resolution
+
+6. An AWS Lambda function requires several environment variables with secret values. The secret values should be obscured in the Lambda console and API output even for users who have permission to use the key.
+What is the best way to achieve this outcome and MINIMIZE complexity and latency?
+     Ans: Encrypt the secret values client-side using encryption helpers
+
+7. A serverless application is used to process customer information and outputs a JSON file to an Amazon S3 bucket. AWS Lambda is used for processing the data. The data is sensitive and should be encrypted.
+How can a Developer modify the Lambda function to ensure the data is encrypted before it is uploaded to the S3 bucket?
+     Ans: Use the GenerateDataKey API, then use the data key to encrypt the file using the Lambda code
+
+8. A company is in the process of migrating an application from a monolithic architecture to a microservices-based architecture. The developers need to refactor the application so that the many microservices can asynchronously communicate with each other in a decoupled manner.
+Which AWS services can be used for asynchronous message passing?
+     Ans: SNS, SQS 
+
+9. An AWS developer is building an application that processes sensitive personally identifiable information (PII). The application operates on AWS Lambda and writes diagnostic data to Amazon CloudWatch. However, the developer wants to ensure that PII is not accidentally logged in CloudWatch.
+What strategy should the developer adopt to ensure this?
+     Ans: Use Amazon Macie to regularly scan and identify any PII within the logs
+
+10. A Developer is writing a web application that allows users to view images from an Amazon S3 bucket. The users will log in with their Amazon login, as well as Facebook and/or Google accounts. How can the Developer provide this authentication capability?
+     Ans: Use Amazon Cognito with web identity federation
+
+11. A Developer is creating a service on Amazon ECS and needs to ensure that each task is placed on a different container instance. How can this be achieved?
+     Ans: Use a task placement constraint
+
+12. A Developer needs to write some code to invoke an AWS Lambda function using the AWS Command Line Interface (CLI). Which option must be specified to cause the function to be invoked asynchronously? 
+     Ans: Set the –invocation-type option to Event
+
+13. A Developer recently created an Amazon DynamoDB table. The table has the following configuration:
+     Primary partition key: userid (string)
+     Primary sort key: -
+The Developer attempted to add two items for userid “user0001” with unique timestamps and received an error for the second item stating: “The conditional request failed”.
+What MUST the Developer do to resolve the issue?
+     Ans: Recreate the table with a composite key consisting of userid and timestamp
+
+14. A Developer is trying to make API calls using AWS SDK. The IAM user credentials used by the application require multi-factor authentication for all API calls.
+Which method should the Developer use to access the multi-factor authentication protected API?
+     Ans: GetSessionToken
+
+15. A software firm is introducing a multimedia application that allows guest users to sample content before deciding to fully register. The company requires a mechanism that can identify users who have already created an account and to monitor the quantity of guest users who ultimately register.
+What two actions would best satisfy these needs? (Select TWO.)
+     Ans: Implement AWS IAM roles to provide distinct permissions for guest users and registered users
+          Use Amazon Cognito User Pools for managing user registration and authentication
+
+16. A Developer must deploy a new AWS Lambda function using an AWS CloudFormation template. Which procedures will deploy a Lambda function? (Select TWO.)
+     Ans: Create an AWS::Lambda::Function resource in the template, then write the code directly inside the CloudFormation template
+          Upload a ZIP file containing the function code to Amazon S3, then add a reference to it in an AWS::Lambda::Function resource in the template
+
+17. A Developer is deploying an update to a serverless application that includes AWS Lambda using the AWS Serverless Application Model (SAM). The traffic needs to move from the old Lambda version to the new Lambda version gradually, within the shortest period of time. Which deployment configuration is MOST suitable for these requirements?
+     Ans: CodeDeployDefault.LambdaCanary10Percent5Minutes
+
+18. A company is migrating several applications to the AWS cloud. The security team has strict security requirements and mandate that a log of all API calls to AWS resources must be maintained.
+Which AWS service should be used to record this information for the security team?
+     Ans: CloudTrail
+
+19. An application running on a fleet of EC2 instances use the AWS SDK for Java to copy files into several AWS buckets using access keys stored in environment variables. A Developer has modified the instances to use an assumed IAM role with a more restrictive policy that allows access to only one bucket.
+However, after applying the change the Developer logs into one of the instances and is still able to write to all buckets. What is the MOST likely explanation for this situation?
+     Ans: The AWS credential provider looks for instance profile credentials last
+     *NOTE:
+     The default credential provider chain looks for credentials in this order:
+          i. Environment variables AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY 
+          ii. Java system properties–aws.accessKeyId and aws.secretKey
+          iii. The default credential profiles file– typically located at ~/.aws/credentials
+          iv. Amazon ECS container credentials
+          v. Instance profile credentials
+
+20. An Amazon DynamoDB table will store authentication credentials for a mobile app. The table must be secured so only a small group of Developers are able to access it.
+How can table access be secured according to this requirement and following AWS best
+ practice?
+     Ans: Attach a permissions policy to an IAM group containing the Developer’s IAM user accounts that grants access to the table (DynamoDB supports identity-based policies only, doesn't support resource based policy)
+
+21. A company is using Amazon CloudFront to provide low-latency access to a web application to its global users. The organization must encrypt all traffic between users and CloudFront, and all traffic between CloudFront and the web application.
+How can these requirements be met? (Select TWO.)
+     Ans: Set the Origin Protocol Policy to “HTTPS Only
+          Set the Viewer Protocol Policy to “HTTPS Only” or “Redirect HTTP to HTTPS
+     (Requires encryption of in-flight data which can be done by implementing HTTPS. To do this the organization must configure the Origin Protocol Policy and the Viewer Protocol Policy on the CloudFront Distribution.)
+
+22. A three tier web application has been deployed on Amazon EC2 instances using Amazon EC2 Auto Scaling. The EC2 instances in the web tier sometimes receive bursts of traffic and the application tier cannot scale fast enough to keep up with messages sometimes resulting in message loss.
+How can a Developer decouple the application to prevent loss of messages?
+     Ans: Add an Amazon SQS queue between the web tier and the application tier
+
+23. A company uses Amazon SQS to decouple an online application that generates memes. The SQS consumers poll the queue regularly to keep throughput high and this is proving to be costly and resource intensive. A Developer has been asked to review the system and propose changes that can reduce costs and the number of empty responses.
+What would be the BEST approach to MINIMIZING cost?
+     Ans: Set the Imaging queue ReceiveMessageWaitTimeSeconds attribute to 20 seconds
 
 
 
