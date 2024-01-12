@@ -24,3 +24,9 @@ Practice Questions:
 
    Stephane Marek:
    https://cognizant.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/learn/quiz/4540356#overview
+
+
+Quick brush up: 
+
+1. Deployment policies (Rolling, rolling with batch, immutable, blue green) 
+2. SQS (visibility timeout, DelaySeconds, long polling)
