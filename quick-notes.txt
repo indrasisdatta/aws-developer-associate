@@ -30,3 +30,7 @@ Quick brush up:
 
 1. Deployment policies (Rolling, rolling with batch, immutable, blue green) 
 2. SQS (visibility timeout, DelaySeconds, long polling)
+3. Appspec.yml order of life cycle hooks in EC2, Lambda, ECS   
+   (BeforeInstall, AfterInstall etc)
+   https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
+4. DynamoDB LSI v/s GSI (practical examples)

@@ -456,6 +456,96 @@ How should the Developer write the function?
 How can the Development team setup a static ARN that will point to the latest published version?
      Ans: Setup an Alias that will point to the latest version
 
+------------------------------------------------------------------------------------------------
+
+Practice test 6
+
+1. The manager of a development team is setting up a shared S3 bucket for team members. The manager would like to use a single policy to allow each user to have access to their objects in the S3 bucket. Which feature can be used to generalize the policy?
+     Ans: Variable
+     (Eg: "Resource": ["arn:aws:s3::myBucket/${aws:username}/*])
+
+2. A Developer is creating a social networking app for games that uses a single Amazon DynamoDB table. All users’ saved game data is stored in the single table, but users should not be able to view each other’s data.
+How can the Developer restrict user access so they can only view their own data?
+     Ans: Restrict access to specific items based on certain primary key values
+
+3. A company runs many microservices applications that use Docker containers. The company are planning to migrate the containers to Amazon ECS. The workloads are highly variable and therefore the company prefers to be charged per running task.
+Which solution is the BEST fit for the company’s requirements?
+     Ans: Amazon ECS with the Fargate launch type
+
+4. A Developer is creating an AWS Lambda function that will process medical images. The function is dependent on several libraries that are not available in the Lambda runtime environment. Which strategy should be used to create the Lambda deployment package?
+     Ans: Create a ZIP file with the source code and all dependent libraries
+
+5. A Developer created an AWS Lambda function and then attempted to add an on failure destination but received the following error:
+The function's execution role does not have permissions to call SendMessage on arn:aws:sqs:us-east-1:515148212435:FailureDestination
+How can the Developer resolve this issue MOST securely?
+     Ans: Create a customer managed policy with all read/write permissions to SQS and attach the policy to the function’s execution role
+
+6. A website delivers images stored in an Amazon S3 bucket. The site uses Amazon Cognito-enabled and guest users without logins need to be able to view the images from the S3 bucket.
+How can a Developer enable access for guest users to the AWS resources?
+     Ans: Create a new identity pool, enable access to unauthenticated identities, and grant access to AWS resources
+
+7. A Developer is creating an AWS Lambda function to process a stream of data from an Amazon Kinesis Data Stream. When the Lambda function parses the data and encounters a missing field, it exits the function with an error. The function is generating duplicate records from the Kinesis stream. When the Developer looks at the stream output without the Lambda function, there are no duplicate records. What is the reason for the duplicates?
+     Ans: The Lambda function did not handle the error, and the Lambda service attempted to reprocess the data
+
+8. A company is building an application to track athlete performance using an Amazon DynamoDB table. Each item in the table is identified by a partition key (user_id) and a sort key (sport_name). The table design is shown below:
+• Partition key: user_id
+• Sort Key: sport_name
+• Attributes: score, score_datetime
+A Developer is asked to write a leaderboard application to display the top performers (user_id) based on the score for each sport_name.
+What process will allow the Developer to extract results MOST efficiently from the DynamoDB table?
+     Ans: Create a global secondary index with a partition key of sport_name and a sort key of score, and get the results
+
+9. A Development team are developing a micro-services application that will use Docker containers on Amazon ECS. There will be 6 distinct services included in the architecture. Each service requires specific permissions to various AWS services.
+What is the MOST secure way to grant the services the necessary permissions?
+     Ans: Create six separate IAM roles, each containing the required permissions for the associated ECS service, then configure each ECS task definition to reference the associated IAM role
+
+10. A legacy application is being refactored into a microservices architecture running on AWS. The microservice will include several AWS Lambda functions. A Developer will use AWS Step Functions to coordinate function execution. How should the Developer proceed?
+     Ans: Create a state machine using the Amazon States Language
+
+11. A company has hired a team of remote Developers. The Developers need to work programmatically with AWS resources from their laptop computers.
+Which security components MUST the Developers use to authenticate? (Select TWO.)
+     Ans: Access key ID, Secret access key 
+
+12. An application uses Amazon EC2 instances, AWS Lambda functions and an Amazon SQS queue. The Developer must ensure all communications are within an Amazon VPC using private IP addresses. How can this be achieved? (Select TWO.)
+     Ans: Add the AWS Lambda function to the VPC
+          Create a VPC endpoint for Amazon SQS
+     (This solution can be achieved by adding the AWS Lambda function to a VPC through the function configuration, and by creating a VPC endpoint for Amazon SQS. This will result in the services using purely private IP addresses to communicate without traversing the public Internet)
+
+13. An application that is being migrated to AWS and refactored requires a storage service. The storage service should provide a standards-based REST web service interface and store objects based on keys.
+Which AWS service would be MOST suitable?
+     Ans: Amazon S3 
+
+14. A retail organization stores stock information in an Amazon RDS database. An application reads and writes data to the database. A Developer has been asked to provide read access to the database from a reporting application in another region.
+Which configuration would provide BEST performance for the reporting 
+application without impacting the performance of the main database?
+     Ans: Implement a cross-region read replica in the region where the reporting application will run
+
+15. A company is reviewing their security practices. According to AWS best practice how should access keys be managed to improve security? (Select TWO.)
+     Ans: Delete all access keys for the root account IAM user
+          Use different access keys for different applications
+
+16. An independent software vendor (ISV) uses Amazon S3 and Amazon CloudFront to distribute software updates. They would like to provide their premium customers with access to updates faster. What is the MOST efficient way to distribute these updates only to the premium customers? (Select TWO.)
+     Ans: Create a signed URL with access to the content and distribute it to the premium customers
+     Create an origin access identity (OAI) and associate it with the distribution and configure permissions    
+
+17. A Developer is publishing custom metrics for Amazon EC2 using the Amazon CloudWatch CLI. The Developer needs to add further context to the metrics being published by organizing them by EC2 instance and Auto Scaling Group. What should the Developer add to the CLI command when publishing the metrics using put-metric-data 
+     Ans: The --dimensions parameter
+
+18. A developer has created a Docker image and uploaded it to an Amazon Elastic Container Registry (ECR) repository. How can the developer pull the image to his workstation using the docker client?
+     Ans: Run aws ecr get-login-password use the output to login in then issue a docker pull command specifying the image name using registry/repository[:tag]
+
+19. A monitoring application that keeps track of a large eCommerce website uses Amazon Kinesis for data ingestion. During periods of peak data rates, the producers are not making best use of the available shards.
+What step will allow the producers to better utilize the available shards and increase write throughput to the Kinesis data stream? 
+     Ans: Install the Kinesis Producer Library (KPL) for ingesting data into the stream
+
+20. A solution requires a serverless service for receiving streaming data and loading it directly into an Amazon Elasticsearch datastore. Which AWS service would be suitable for this requirement?
+     Ans: Amazon Kinesis Data Firehose
+
+21. A Developer is deploying an Amazon EC2 update using AWS CodeDeploy. In the appspec.yml file, which of the following is a valid structure for the order of hooks that should be specified?
+     Ans: BeforeInstall > AfterInstall > ApplicationStart > ValidateService
+
+
+
 
 
 
