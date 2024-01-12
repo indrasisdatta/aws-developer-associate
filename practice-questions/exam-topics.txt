@@ -123,26 +123,20 @@ What is the MOST secure way to call AWS CLI commands with the developer's IAM id
 
 33. A developer is creating a serverless application that uses an AWS Lambda function The developer will use AWS CloudFormation to deploy the application The application will write logs to Amazon CloudWatch Logs. The developer has created a log group in a CloudFormation template for the application to use. The developer needs to modify the CloudFormation template to make the name of the log group available to the application at runtime.
 Which solution will meet this requirement?
-  Ans: Pass the log group's Amazon Resource Name (ARN) as an environment variable to the Lambda function.
-
+  Ans: Use the CloudFormation template's Mappings section to specify the log group's name for the application
 
 34. A company is running an application on Amazon Elastic Container Service (Amazon ECS). When the company deploys a new version of the application, the company initially needs to expose 10% of live traffic to the new version. After a period of time, the company needs to immediately route all the remaining live traffic to the new version.
 Which ECS deployment should the company use to meet these requirements? 
   Ans: Blue/green with canary 
 
-35. A Developer wants to track the performance of an application that runs on a fleet of Amazon EC2
-instances. The Developer wants to view and track statistics across the fleet, such as the average and
-maximum request latency. The Developer would like to be notified immediately if the average response
-time exceeds a threshold. Which solution meets these requirements?
-  Ans: Configure the application to write the response times to a log file. Install and configure the Amazon
-        CloudWatch agent on the instances to stream the application log to CloudWatch Logs. Create a metric
+35. A Developer wants to track the performance of an application that runs on a fleet of Amazon EC2 instances. The Developer wants to view and track statistics across the fleet, such as the average and maximum request latency. The Developer would like to be notified immediately if the average response time exceeds a threshold. Which solution meets these requirements?
+  Ans: Configure the application to write the response times to a log file. Install and configure the Amazon CloudWatch agent on the instances to stream the application log to CloudWatch Logs. 
+  Create a metric
         filter of the response time from the log. View the metrics graphs in the CloudWatch console. Create a
         CloudWatch alarm to send an Amazon SNS notification when the average of the response time metric
         exceeds the threshold.
 
-36. A Developer is testing an application locally and has deployed it to AWS Lambda. To remain under the
-package size limit, the dependencies were not included in the deployment file. When testing the
-application remotely, the function does not execute because of missing dependencies. Which approach would resolve the issue?
+36. A Developer is testing an application locally and has deployed it to AWS Lambda. To remain under the package size limit, the dependencies were not included in the deployment file. When testing the application remotely, the function does not execute because of missing dependencies. Which approach would resolve the issue?
   Ans: Attach a layer to the Lambda function that contains the missing dependencies.
 
 37. A company has moved a legacy on-premises application to AWS by performing a lift and shift. The application exposes a REST API that can be used to retrieve billing information. The application is running on a single Amazon EC2 instance. The application code cannot support concurrent invocations. Many clients access the API, and the company adds new clients all the time.
@@ -155,7 +149,7 @@ What should the developer do to meet these requirements?
 
 39. A developer has built an application that inserts data into an Amazon DynamoDB table. The table is configured to use provisioned capacity. The application is deployed on a burstable nano Amazon EC2 Instance. The application logs show that the application has been failing because of a ProvisionedThroughputExceedException error. Which actions should the developer take to resolve this issue? (Choose two.)
   Ans:  Reduce the frequency of requests to DynamoDB by implement ng exponential backoff.
-        Reduce the frequency of requests to DynamoDB by implement ng exponential backoff.
+  Change the capacity mode of the DynamoDB table from provisioned to on-demand
 
 40. A developer is deploying on application on Amazon EC2 instances that run in Account A. In certain cases, this application needs to read data from a private Amazon S3 bucket in Account B. The developer must provide the application access to the S3 bucket without exposing the S3 bucket to anyone else. Which combination of actions should the developer take to meet these requirements? (Choose two.)
   Ans: Update the instance profile IAM role in Account A with S3 read permissions. 
