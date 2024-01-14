@@ -193,6 +193,72 @@ How will you invoke the !FindInMap function to fulfill this use case?
 
 =============================================
 
+Practice test 2
+
+IMP: Q29, 39 
+
+1. A company uses Amazon Simple Email Service (SES) to cost-effectively send susbscription emails to the customers. Intermittently, the SES service throws the error: Throttling – Maximum sending rate exceeded. 
+As a developer associate, which of the following would you recommend to fix this issue?
+     Ans: Use Exponential Backoff technique to introduce delay in time before attempting to execute the operation again
+
+2. A developer wants to package the code and dependencies for the application-specific Lambda functions as container images to be hosted on Amazon Elastic Container Registry (ECR). Which of the following options are correct for the given requirement? (Select two)
+     Ans: To deploy a container image to Lambda, the container image must implement the Lambda Runtime API 
+     AWS Lambda service does not support Lambda functions that use multi-architecture container images
+     
+3. The development team at a multi-national retail company wants to support trusted third-party authenticated users from the supplier organizations to create and update records in specific DynamoDB tables in the company's AWS account. As a Developer Associate, which of the following solutions would you suggest for the given use-case?
+     Ans: Use Cognito Identity pools to enable trusted third-party authenticated users to access DynamoDB
+
+4. The technology team at an investment bank uses DynamoDB to facilitate high-frequency trading where multiple trades can try and update an item at the same time. Which of the following actions would make sure that only the last updated value of any item is used in the application?
+     Ans: Use ConsistentRead = true while doing GetItem operation for any item
+
+5. Your team lead has asked you to learn AWS CloudFormation to create a collection of related AWS resources and provision them in an orderly fashion. You decide to provide AWS-specific parameter types to catch invalid values. When specifying parameters which of the following is not a valid Parameter type?
+     Ans: DependentParameter
+
+6. A Developer is configuring Amazon EC2 Auto Scaling group to scale dynamically. Which metric below is NOT part of Target Tracking Scaling Policy?
+     Ans: ApproximateNumberOfMessagesVisible (SQS queue metric, not EC2)
+
+7. A CRM application is hosted on Amazon EC2 instances with the database tier using DynamoDB. The customers have raised privacy and security concerns regarding sending and receiving data across the public internet.
+As a developer associate, which of the following would you suggest as an optimal solution for providing communication between EC2 instances and DynamoDB without using the public internet?
+     Ans: Configure VPC endpoints for DynamoDB that will provide required internal access without using public internet
+
+8. The development team at a retail company is gearing up for the upcoming Thanksgiving sale and wants to make sure that the application's serverless backend running via Lambda functions does not hit latency bottlenecks as a result of the traffic spike. As a Developer Associate, which of the following solutions would you recommend to address this use-case?
+     Ans: Configure Application Auto Scaling to manage Lambda provisioned concurrency on a schedule
+
+9. A university has created a student portal that is accessible through a smartphone app and web application. The smartphone app is available in both Android and IOS and the web application works on most major browsers. Students will be able to do group study online and create forum questions. All changes made via smartphone devices should be available even when offline and should synchronize with other devices.
+Which of the following AWS services will meet these requirements?
+     Ans: Cognito Sync
+
+10. As a Senior Developer, you are tasked with creating several API Gateway powered APIs along with your team of developers. The developers are working on the API in the development environment, but they find the changes made to the APIs are not reflected when the API is called.
+As a Developer Associate, which of the following solutions would you recommend for this use-case?
+     Ans: Redeploy the API to an existing stage or to a new stage
+
+11. A development team is working on an AWS Lambda function that accesses DynamoDB. The Lambda function must do an upsert, that is, it must retrieve an item and update some of its attributes or create the item if it does not exist. Which of the following represents the solution with MINIMUM IAM permissions that can be used for the Lambda function to achieve this functionality?
+     Ans: dynamodb:UpdateItem, dynamodb:GetItem 
+
+12. A business has their test environment built on Amazon EC2 configured on General purpose SSD volume. At which gp2 volume size will their test environment hit the max IOPS?
+     Ans: 5.3 TiB 
+
+13. A developer is looking at establishing access control for an API that connects to a Lambda function downstream.
+Which of the following represents a mechanism that CANNOT be used for authenticating with the API Gateway?
+     Ans: AWS Security Token Service (STS) 
+         
+14. A company runs its flagship application on a fleet of Amazon EC2 instances. After misplacing a couple of private keys from the SSH key pairs, they have decided to re-use their SSH key pairs for the different instances across AWS Regions.
+As a Developer Associate, which of the following would you recommend to address this use-case?
+     Ans: Generate a public SSH key from a private SSH key. Then, import the key into each of your AWS Regions
+
+15. A diagnostic lab stores its data on DynamoDB. The lab wants to backup a particular DynamoDB table data on Amazon S3, so it can download the S3 backup locally for some operational use.
+Which of the following options is NOT feasible?
+     Ans: Use the DynamoDB on-demand backup capability to write to Amazon S3 and download locally 
+
+16. A developer in your company was just promoted to Team Lead and will be in charge of code deployment on EC2 instances via AWS CodeCommit and AWS CodeDeploy. Per the new requirements, the deployment process should be able to change permissions for deployed files as well as verify the deployment success. Which of the following actions should the new Developer take?
+     Ans: Define an appspec.yml file in the root directory
+
+17. A pharmaceutical company uses Amazon EC2 instances for application hosting and Amazon CloudFront for content delivery. A new research paper with critical findings has to be shared with a research team that is spread across the world.
+Which of the following represents the most optimal solution to address this requirement without compromising the security of the content?
+     Ans: Use CloudFront signed URL feature to control access to the file
+
+=============================================
+
 
 
 
