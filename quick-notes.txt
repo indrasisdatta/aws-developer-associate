@@ -34,5 +34,9 @@ Quick brush up:
    (BeforeInstall, AfterInstall etc)
    https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
 4. DynamoDB LSI v/s GSI (practical examples)
-5. Cloudformation (drift, change set)
+5. Cloudformation (drift, change set, syntax findInMap/AllowedValues)
 6. VPC (Internet, NAT gateway usage)
+7. EC2 detailed monitoring 
+8. S3 encryption 
+9. Kinesis (use cases) 
+10. ECS command (config)
