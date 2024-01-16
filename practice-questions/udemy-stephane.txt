@@ -330,12 +330,131 @@ As a developer associate, which of the following would you identify as the key c
 What measures could the developer take to integrate the list of authorized instance types into the CloudFormation template?
      Ans: Configure a parameter with the list of EC2 instance types as AllowedValues in the CloudFormation template
 
+=============================================
 
+Practice test 4
 
+1. A development team is considering Amazon ElastiCache for Redis as its in-memory caching solution for its relational database.
+Which of the following options are correct while configuring ElastiCache?  
+     Ans: - All the nodes in a Redis cluster must reside in the same region
+          - While using Redis with cluster mode enabled, you cannot manually promote any of the replica nodes to primary
 
+2. An organization uses Alexa as its intelligent assistant to improve productivity throughout the organization. A group of developers manages custom Alexa Skills written in Node.Js to control conference-room equipment settings and start meetings using voice activation. The manager has requested developers that all functions code should be monitored for error rates with the possibility of creating alarms on top of them.
+Which of the following options should be chosen? (select two)
+     Ans: - Cloudwatch metrics 
+          - Cloudwatch alarms 
 
+3. A developer is migrating an on-premises application to AWS Cloud. The application currently processes user uploads and uploads them to a local directory on the server. All such file uploads must be saved and then made available to all instances in an Auto Scaling group.
+As a Developer Associate, which of the following options would you recommend for this use-case?
+     Ans: Use Amazon S3 and make code changes in the application so all uploads are put on S3
+     (EFS is more accurate but not present in options)
 
+4. Your company manages MySQL databases on EC2 instances to have full control. Applications on other EC2 instances managed by an ASG make requests to these databases to get information that displays data on dashboards viewed on mobile phones, tablets, and web browsers.
+Your manager would like to scale your Auto Scaling group based on the number of requests per minute. How can you achieve this?
+     Ans: You create a CloudWatch custom metric and build an alarm to scale your ASG
 
+5. Your company manages hundreds of EC2 instances running on Linux OS. The instances are configured in several Availability Zones in the eu-west-3 region. Your manager has requested to collect system memory metrics on all EC2 instances using a script.
+Which of the following solutions will help you collect this data?
+     Ans: Use a cron job on the instances that pushes the EC2 RAM statistics as a Custom metric into CloudWatch
+
+6. You are working on a project that has over 100 dependencies. Every time your AWS CodeBuild runs a build step it has to resolve Java dependencies from external Ivy repositories which take a long time. Your manager wants to speed this process up in AWS CodeBuild.
+Which of the following will help you do this with minimal effort?
+     Ans: cache the dependencies on S3 
+
+7. A company has several Linux-based EC2 instances that generate various log files which need to be analyzed for security and compliance purposes. The company wants to use Kinesis Data Streams (KDS) to analyze this log data. Which of the following is the most optimal way of sending log data from the EC2 instances to KDS?
+     Ans: Install and configure Kinesis Agent on each of the instances
+
+8. An IT company uses a blue/green deployment policy to provision new Amazon EC2 instances in an Auto Scaling group behind a new Application Load Balancer for each new application version. The current set up requires the users to log in after every new deployment.
+As a Developer Associate, what advice would you give to the company for resolving this issue?
+     Ans: Use ElastiCache to maintain user sessions
+     (sticky session won't work as ALB is replaced on each deployment)
+
+9. An e-commerce company has implemented AWS CodeDeploy as part of its AWS cloud CI/CD strategy. The company has configured automatic rollbacks while deploying a new version of its flagship application to Amazon EC2.
+What occurs if the deployment of the new version fails?
+     Ans: A new deployment of the last known working version of the application is deployed with a new deployment ID
+
+10. Your mobile application needs to perform API calls to DynamoDB. You do not want to store AWS secret and access keys onto the mobile devices and need all the calls to DynamoDB made with a different identity per mobile device. Which of the following services allows you to achieve this?
+     Ans: Cognito identity pool 
+
+11. A development team had enabled and configured CloudTrail for all the Amazon S3 buckets used in a project. The project manager owns all the S3 buckets used in the project. However, the manager noticed that he did not receive any object-level API access logs when the data was read by another AWS account. What could be the reason for this behavior/error?
+     Ans: The bucket owner also needs to be object owner to get the object access logs
+     (If the bucket owner is also the object owner, the bucket owner gets the object access logs. Otherwise, the bucket owner must get permissions, through the object ACL, for the same object API to get the same object-access API logs.)
+
+12. A developer is configuring an Application Load Balancer (ALB) to direct traffic to the application's EC2 instances and Lambda functions.
+Which of the following characteristics of the ALB can be identified as correct? (Select two)
+     Ans: - An ALB has three possible target types: Instance, IP and Lambda
+          - You can not specify publicly routable IP addresses to an ALB 
+          (When the target type is IP, you can specify IP addresses from specific CIDR blocks only. You can't specify publicly routable IP addresses.)
+
+13. An Amazon Simple Queue Service (SQS) has to be configured between two AWS accounts for shared access to the queue. AWS account A has the SQS queue in its account and AWS account B has to be given access to this queue.
+Which of the following options need to be combined to allow this cross-account access? (Select three)
+     Ans: 
+     - The account A administrator creates an IAM role and attaches a permissions policy
+     - The account A administrator attaches a trust policy to the role that identifies account B as the principal who can assume the role
+     - The account B administrator delegates the permission to assume the role to any users in account B
+     (This allows users in account B to create or access queues in account A)
+
+14. An organization recently began using AWS CodeCommit for its source control service. A compliance security team visiting the organization was auditing the software development process and noticed developers making many git push commands within their development machines. The compliance team requires that encryption be used for this activity.
+How can the organization ensure source code is encrypted in transit and at rest?
+     Ans: Repositories are automatically encrypted at rest
+
+=============================================
+
+Practice test 5 
+
+1. A company has recently launched a new gaming application that the users are adopting rapidly. The company uses RDS MySQL as the database. The development team wants an urgent solution to this issue where the rapidly increasing workload might exceed the available database storage.
+As a developer associate, which of the following solutions would you recommend so that it requires minimum development effort to address this requirement?
+     Ans: Enable storage auto-scaling for RDS MySQL
+
+2. A company has a new media application that utilizes an Amazon CloudFront distribution that accesses the S3 bucket by using an origin access identity (OAI). The S3 bucket has an explicit access denial for all other users. A developer wants to allow access to the login page for unauthenticated users while ensuring the security of all private content that has restricted viewer access. Which of the following will you recommend?
+     Ans: Configure a second cache behavior to the distribution having the same origin as the default cache behavior and have the path pattern for the second cache behavior as the path of the login page with viewer access as unrestricted. Keep the default cache behavior’s settings unchanged
+
+3. Your company wants to move away from manually managing Lambda in the AWS console and wants to upload and update them using AWS CloudFormation.
+How do you declare an AWS Lambda function in CloudFormation? (Select two)
+     Ans: 
+     - Upload all the code as a zip to S3 and refer the object in AWS::Lambda::Function block
+     - Write the AWS Lambda code inline in CloudFormation in the AWS::Lambda::Function block as long as there are no third-party dependencies
+
+4. A developer has created a new Application Load Balancer but has not registered any targets with the target groups.
+Which of the following errors would be generated by the Load Balancer?
+     Ans: HTTP 503: Service unavailable
+     https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html
+
+5. You have created a test environment in Elastic Beanstalk and as part of that environment, you have created an RDS database.
+How can you make sure the database can be explored after the environment is destroyed?
+     Ans: Make a snapshot of the database before it gets deleted
+
+6. You've just deployed an AWS Lambda function. The lambda function will be invoked via the API Gateway. The API Gateway will need to control access to it. Which of the following mechanisms is not supported for API Gateway?
+     Ans: STS 
+
+7. You would like to paginate the results of an S3 List to show 100 results per page to your users and minimize the number of API calls that you will use. Which CLI options should you use? (Select two)
+     Ans: --max-items, --starting-token
+          (--limit is invalid)
+
+8. The customer feedback functionality for a company's flagship web application is handled via an Amazon API Gateway based REST API that invokes an AWS Lambda function for further processing. Although the performance of the function is satisfactory, the development team has been tasked to optimize the startup time of the Lambda function to further improve the customer experience.
+How will you optimize the Lambda function for faster initialization?
+     Ans: Configure provisioned concurrency for the Lambda function to respond immediately to the function's invocations
+
+9. A business-critical application is hosted on an Amazon EC2 instance and the latest update is in the testing phase. The business has requested a solution to track the average response time of the application and send a notification to the manager if it exceeds a particular threshold. The update will eventually be implemented in the production environment where the solution will be deployed on multiple EC2 instances.
+Which of the following options would you combine to address the requirements of the business? (Select two)
+     Ans: 
+     - Configure the application to write the response time to a log file on the EC2 instance. Install and configure the Amazon CloudWatch agent on the EC2 instance to stream the application logs to CloudWatch Logs. Create a metric filter for the response time from the log file
+     - Create a CloudWatch alarm to send an Amazon Simple Notification Service (Amazon SNS) notification when the average of the response time metric exceeds the threshold
+
+10. An e-commerce company has deployed its application on AWS Elastic Beanstalk. The Auto Scaling group associated with the Beanstalk environment has three Amazon EC2 instances. When the number of instances falls below two, it severely impacts the performance of the web application. The company currently uses the default all-at-once deployment policy and is looking for an effective strategy for future deployments.
+Which of the following represents the most cost-effective deployment strategy for the company?
+     Ans: Opt for rolling with additional batch deployment strategy. Set the batch size parameter to 1
+
+11. You would like to have a one-stop dashboard for all the CI/CD needs of one of your projects. You don't need heavy control of the individual configuration of each component in your CI/CD, but need to be able to get a holistic view of your projects. Which service do you recommend?
+     Ans: Codestar 
+
+12. An e-commerce company has multiple EC2 instances operating in a private subnet which is part of a custom VPC. These instances are running an image processing application that needs to access images stored on S3. Once each image is processed, the status of the corresponding record needs to be marked as completed in a DynamoDB table.
+How would you go about providing private access to these AWS resources which are not part of this custom VPC?
+     Ans: Create a separate gateway endpoint for S3 and DynamoDB each. Add two new target entries for these two gateway endpoints in the route table of the custom VPC
+
+13. A data analytics company ingests a large number of messages and stores them in an RDS database using Lambda. Because of the increased payload size, it is taking more than 15 minutes to process each message.
+As a Developer Associate, which of the following options would you recommend to process each message in the MOST scalable way?
+     Ans: Provision EC2 instances in an Auto Scaling group to poll the messages from an SQS queue
 
 
 
