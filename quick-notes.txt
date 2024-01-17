@@ -49,3 +49,6 @@ Quick brush up:
        EC2/on premise - blue-green, in-place 
        ECS - blue/green 
        ASG - blue/gren, in-place
+
+Github ques: 
+https://github.com/Ditectrev/Amazon-Web-Services-AWS-Developer-Associate-DVA-C02-Practice-Tests-Exams-Questions-Answers?tab=readme-ov-file#an-organization-is-storing-large-files-in-amazon-s3-and-is-writing-a-web-application-to-display-meta-data-about-the-files-to-end-users-based-on-the-metadata-a-user-selects-an-object-to-download-the-organization-needs-a-mechanism-to-index-the-files-and-provide-single-digit-millisecond-latency-retrieval-for-the-metadata-what-aws-service-should-be-used-to-accomplish-this
