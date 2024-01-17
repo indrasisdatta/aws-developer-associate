@@ -33,7 +33,9 @@ Quick brush up:
 3. Appspec.yml order of life cycle hooks in EC2, Lambda, ECS   
    (BeforeInstall, AfterInstall etc)
    https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
-4. DynamoDB LSI v/s GSI (practical examples)
+4. DynamoDB  
+     LSI v/s GSI (practical examples)
+     Provisioned v/s reserved concurrency 
 5. Cloudformation (drift, change set, syntax findInMap/AllowedValues)
 6. VPC (Internet, NAT gateway usage)
 7. EC2 detailed monitoring 
@@ -42,5 +44,8 @@ Quick brush up:
 10. ECS command (config)
 11. Appspec file 'resources' required 
     https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-resources.html
-   
-
+12. CloudFront Functions v/s Lambda@Edge
+13. Codedeploy 
+       EC2/on premise - blue-green, in-place 
+       ECS - blue/green 
+       ASG - blue/gren, in-place
