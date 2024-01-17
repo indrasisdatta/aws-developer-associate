@@ -40,3 +40,7 @@ Quick brush up:
 8. S3 encryption 
 9. Kinesis (use cases) 
 10. ECS command (config)
+11. Appspec file 'resources' required 
+    https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-resources.html
+   
+

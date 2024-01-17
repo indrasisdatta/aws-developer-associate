@@ -280,7 +280,7 @@ Which solution will allow the Lambda functions to access Systems Manager paramet
   Ans: Create an interface VPC endpoint for Systems Manager
 
 71. A developer wants to use AWS CodeDeploy to deploy an Amazon Elastic Container Service (Amazon ECS) service. What are the MINIMUM properties required in the 'resources' section of the AppSpec file for CodeDeploy to deploy the ECS service successfully?
-  Ans: TaskDefimtion, ContainerName, and ContainerPort
+  Ans: TaskDefinition, ContainerName, and ContainerPort
 
 72. A developer is writing a web application that is deployed on Amazon EC2 instances behind an internet-facing Application Load Balancer (ALB). The developer must add an Amazon CloudFront distribution in front of the ALB. The developer also must ensure that customer data from outside the VPC is encrypted in transit.
 Which combination of CloudFront configuration settings should the developer use to meet these requirements?
