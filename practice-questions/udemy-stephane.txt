@@ -456,6 +456,112 @@ How would you go about providing private access to these AWS resources which are
 As a Developer Associate, which of the following options would you recommend to process each message in the MOST scalable way?
      Ans: Provision EC2 instances in an Auto Scaling group to poll the messages from an SQS queue
 
+=================================
+
+1. A photo-sharing application manages its EC2 server fleet running behind an Application Load Balancer and the traffic is fronted by a CloudFront distribution. The development team wants to decouple the user authentication process for the application so that the application servers can just focus on the business logic.
+As a Developer Associate, which of the following solutions would you recommend to address this use-case with minimal development effort?
+     Ans: Use Cognito Authentication via Cognito User Pools for your Application Load Balancer
+          https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html#authentication-flow
+
+2. As an AWS Certified Developer Associate, you are writing a CloudFormation template in YAML. The template consists of an EC2 instance creation and one RDS resource. Once your resources are created you would like to output the connection endpoint for the RDS database.
+Which intrinsic function returns the value needed?
+     Ans: !GetAtt (!GetAtt myELB.DNSName)
+
+3. Your organization has developers that merge code changes regularly to an AWS CodeCommit repository. Your pipeline has AWS CodeCommit as the source and you would like to configure a rule that reacts to changes in CodeCommit.
+Which of the following options do you choose for this type of integration? 
+     Ans: Cloudwatch event rules 
+
+4. A media application uses Amazon CloudFront distribution to distribute static content configured on an Amazon S3 bucket. The application is used across different countries and various AWS Regions. Some regions have been experiencing latency when there is a cache miss on CloudFront.
+Which of the following configuration changes will you suggest to decrease latency and improve user performance?
+     Ans: Redirect requests on cache misses to the Amazon S3 bucket nearest to the user country. Create a CloudFront function to redirect requests based on the value of the CloudFront-Viewer-Country header. Associate the CloudFront function with the distribution's viewer request event
+
+5. A new recruit is trying to understand the nuances of EC2 Auto Scaling. As an AWS Certified Developer Associate, you have been asked to mentor the new recruit.
+Can you identify and explain the correct statements about Auto Scaling to the new recruit? (Select two).
+     Ans: - Amazon EC2 Auto Scaling cannot add a volume to an existing instance if the existing volume is approaching capacity
+          - Amazon EC2 Auto Scaling works with both Application Load Balancers and Network Load Balancers
+
+6. Your team-mate has configured an Amazon S3 event notification for an S3 bucket that holds sensitive audit data of a firm. As the Team Lead, you are receiving the SNS notifications for every event in this bucket. After validating the event data, you realized that few events are missing.
+What could be the reason for this behavior and how to avoid this in the future?     
+     Ans: If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent
+
+7. The development team at a health-care company is planning to migrate to AWS Cloud from the on-premises data center. The team is evaluating Amazon RDS as the database tier for its flagship application.
+Which of the following would you identify as correct for RDS Multi-AZ? (Select two)
+     Ans: - RDS applies OS updates by performing maintenance on the standby, then promoting the standby to primary, and finally performing maintenance on the old primary, which becomes the new standby
+          - Amazon RDS automatically initiates a failover to the standby, in case the primary database fails for any reason 
+
+8. An investment firm wants to continuously generate time-series analytics of the stocks being purchased by its customers. The firm wants to build a live leaderboard with near-real-time analytics for these in-demand stocks.
+Which of the following represents a fully managed solution with the least cost to address this use-case?
+     Ans: Use Kinesis Firehose to ingest data and Kinesis Data Analytics to generate leaderboard scores and time-series analytics
+
+9. An e-commerce application writes log files into Amazon S3. The application also reads these log files in parallel on a near real-time basis. The development team wants to address any data discrepancies that might arise when the application overwrites an existing log file and then tries to read that specific log file.
+Which of the following options BEST describes the capabilities of Amazon S3 relevant to this scenario?
+     Ans: A process replaces an existing object and immediately tries to read it. Amazon S3 always returns the latest version of the object
+          
+10. A Company uses a large set of EBS volumes for their fleet of Amazon EC2 instances. As an AWS Certified Developer Associate, your help has been requested to understand the security features of the EBS volumes. The company does not want to build or maintain their own encryption key management infrastructure.
+Can you help them understand what works for Amazon EBS encryption? 
+     Ans: - Encryption by default is a Region-specific setting. If you enable it for a Region, you cannot disable it for individual volumes or snapshots in that Region
+          - A volume restored from an encrypted snapshot, or a copy of an encrypted snapshot, is always encrypted 
+
+15. A video streaming application uses Amazon CloudFront for its data distribution. The development team has decided to use CloudFront with origin failover for high availability.
+Which of the following options are correct while configuring CloudFront with Origin Groups? (Select two)
+     Ans: - CloudFront routes all incoming requests to the primary origin, even when a previous request failed over to the secondary origin
+          - CloudFront fails over to the secondary origin only when the HTTP method of the viewer request is GET, HEAD or OPTIONS
+
+16. Your application sends messages to an Amazon Simple Queue Service (SQS) queue frequently, which are then polled by another application that specifies which message to retrieve.
+Which of the following options describe the maximum number of messages that can be retrieved at one time?
+     Ans: 10 
+
+17. A development team has noticed that one of the EC2 instances has been wrongly configured with the 'DeleteOnTermination' attribute set to True for its root EBS volume. As a developer associate, can you suggest a way to disable this flag while the instance is still running?
+     Ans: Set the DeleteOnTermination attribute to False using CLI 
+
+18. A startup manages its Cloud resources with Elastic Beanstalk. The environment consists of few Amazon EC2 instances, an Auto Scaling Group (ASG), and an Elastic Load Balancer. Even after the Load Balancer marked an EC2 instance as unhealthy, the ASG has not replaced it with a healthy instance.
+As a Developer, suggest the necessary configurations to automate the replacement of unhealthy instance.
+     Ans: The health check type of your instance's Auto Scaling group, must be changed from EC2 to ELB by using a configuration file
+
+19. An organization with high data volume workloads have successfully moved to DynamoDB after having many issues with traditional database systems. However, a few months into production, DynamoDB tables are consistently recording high latency.
+As a Developer Associate, which of the following would you suggest to reduce the latency? (Select two)
+     Ans: Consider using Global tables if your application is accessed by globally distributed users
+          Use eventually consistent reads in place of strongly consistent reads whenever possible 
+
+20. The development team at an IT company has configured an Application Load Balancer (ALB) with a Lambda function A as the target but the Lambda function A is not able to process any request from the ALB. Upon investigation, the team finds that there is another Lambda function B in the AWS account that is exceeding the concurrency limits.
+How can the development team address this issue?
+     Ans: Set up reserved concurrency for the Lambda function B so that it throttles if it goes above a certain concurrency limit
+
+21. A multi-national company maintains separate AWS accounts for different verticals in their organization. The project manager of a team wants to migrate the Elastic Beanstalk environment from Team A's AWS account into Team B's AWS account. As a Developer, you have been roped in to help him in this process.
+Which of the following will you suggest?
+     Ans: Create a saved configuration in Team A's account and download it to your local machine. Make the account-specific parameter changes and upload to the S3 bucket in Team B's account. From Elastic Beanstalk console, create an application from 'Saved Configurations
+
+22. A development team has been using Amazon S3 service as an object store. With Amazon S3 turning strongly consistent, the team wants to understand the impact of this change on its data storage practices.
+As a developer associate, can you identify the key characteristics of the strongly consistent data model followed by S3? (Select two)
+     Ans: 
+     - A process deletes an existing object and immediately tries to read it. Amazon S3 will not return any data as the object has been deleted 
+     - If you delete a bucket and immediately list all buckets, the deleted bucket might still appear in the list
+
+23. A developer while working on Amazon EC2 instances, realized that an instance was not needed and had shut it down. But another instance of the same type automatically got launched in the account.
+Which of the following options can attribute the given sequence of actions?
+     Ans: Instance might be part of Auto Scaling Group and hence re-launched similar instance 
+
+24. As a site reliability engineer, you are responsible for improving the company’s deployment by scaling and automating applications. As new application versions are ready for production you ensure that the application gets deployed to different sets of EC2 instances at different times allowing for a smooth transition. Using AWS CodeDeploy, which of the following options will allow you to do this?
+     Ans: CodeDeploy Deployment Groups
+
+25. A retail company manages its IT infrastructure on AWS Cloud via Elastic Beanstalk. The development team at the company is planning to deploy the next version with MINIMUM application downtime and the ability to rollback quickly in case deployment goes wrong. As a Developer Associate, which of the following options would you recommend to the development team?
+     Ans: Deploy the new version to a separate environment via Blue/Green Deployment, and then swap Route 53 records of the two environments to redirect traffic to the new version
+
+26. A developer has just integrated an AWS Lambda function to an Amazon API Gateway API. The integration has led to errors that the developer is unable to troubleshoot. The developer has decided to enable CloudWatch logging at the method level for the API Gateway API.
+What are the key points of consideration while configuring configuring method-level logging for the API Gateway? (Select two)
+     Ans: 
+     - AWS Security Token Service(STS) is used by API Gateway for logging data to CloudWatch logs. Hence, AWS STS has to be enabled for the Region that you're using
+     - To enable CloudWatch Logs for all or only some of the methods, you must also specify the ARN of an IAM role that enables API Gateway to write information to CloudWatch Logs on behalf of your user. The IAM role must also contain the following trust relationship statement
+
+
+
+
+
+
+
+
+
+
 
 
 
