@@ -191,7 +191,7 @@ The Developer wants to use an AWS Lambda@Edge function that is associated with t
 
 ------------------------------------------------------------------------------------------------
 
-Practice Test 3 
+Practice Test 3 - Q5, 
 
 1. A Developer is creating a DynamoDB table for storing application logs. The table has 5 write capacity units (WCUs). The Developer needs to configure the read capacity units (RCUs) for the table. Which of the following configurations represents the most efficient use of throughput? 
      Ans: Eventually consistent reads of 5 RCUs reading items that are 4 KB in size

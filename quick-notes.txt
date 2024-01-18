@@ -25,6 +25,7 @@ Practice Questions:
    Stephane Marek:
    https://cognizant.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/learn/quiz/4540356#overview
 
+=====================================================================
 
 Quick brush up: 
 
@@ -35,7 +36,7 @@ Quick brush up:
    https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
 4. DynamoDB  
      LSI v/s GSI (practical examples)
-     Provisioned v/s reserved concurrency 
+     Lambda Provisioned v/s reserved concurrency 
 5. Cloudformation (drift, change set, syntax findInMap/AllowedValues)
 6. VPC (Internet, NAT gateway usage)
 7. EC2 detailed monitoring 
@@ -45,10 +46,18 @@ Quick brush up:
 11. Appspec file 'resources' required 
     https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-resources.html
 12. CloudFront Functions v/s Lambda@Edge
+    https://trackit.io/cloudfront-functions-vs-lambdaedge/
 13. Codedeploy 
        EC2/on premise - blue-green, in-place 
        ECS - blue/green 
-       ASG - blue/gren, in-place
+       ASG - blue/green, in-place
+
+Practice test:
+
+1. Neal Davis 
+     P3 - 5, 
+
+=====================================================================
 
 Github ques: 
 https://github.com/Ditectrev/Amazon-Web-Services-AWS-Developer-Associate-DVA-C02-Practice-Tests-Exams-Questions-Answers?tab=readme-ov-file#an-organization-is-storing-large-files-in-amazon-s3-and-is-writing-a-web-application-to-display-meta-data-about-the-files-to-end-users-based-on-the-metadata-a-user-selects-an-object-to-download-the-organization-needs-a-mechanism-to-index-the-files-and-provide-single-digit-millisecond-latency-retrieval-for-the-metadata-what-aws-service-should-be-used-to-accomplish-this
