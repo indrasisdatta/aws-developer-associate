@@ -1,0 +1,18 @@
+Lambda + S3 event notifications
+
+Ref: https://cognizant.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/26623368#overview
+
+Follow the steps outlined below to achieve the objective of this lab exercise:
+
+1. Create a Lambda Function.
+2. Choose the option: Use a Blueprint
+3. From the list provided, select S3-Get-Object-Python (recommended to make use of other available Blueprint options to gain proficiency)
+4. Click Configure
+5. Name the function.
+6. Select Use an existing Role (LambdaRole) under Execution Role
+7. In parallel, create an S3 bucket. After creation, go back to Lambda Configuration Page.
+8. Choose the bucket created from the list of buckets available and enable the trigger.
+9. Let the Event type to be default – All object create events
+
+Note: Now if you make any changes or upload any objects in your S3 bucket, your lambda function will be triggered.
+
