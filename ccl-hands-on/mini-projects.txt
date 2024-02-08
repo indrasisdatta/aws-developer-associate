@@ -1,0 +1,33 @@
+Mini-project ideas
+____________________
+
+1) Static Website Hosting: 
+Use Amazon S3 to host a static website. Upload HTML, CSS, and JavaScript files to an S3 bucket, and configure it for static website hosting.
+[Done]
+
+2) Dynamic Website with EC2: 
+Deploy a simple dynamic website using Amazon EC2. Install a web server (e.g., Apache or Nginx), host a basic application, and configure security groups.
+
+3) Serverless Web Application: 
+Build a serverless web application using AWS Lambda, API Gateway, and DynamoDB. Create a simple CRUD (Create, Read, Update, Delete) application.
+
+4) File Storage and Sharing: 
+Use Amazon S3 to create a file-sharing system. Allow users to upload and download files securely. Explore S3 features like versioning, bucket policies, and access control.
+
+5) Database Setup with RDS: 
+Set up a relational database using Amazon RDS (Relational Database Service). Create a MySQL or PostgreSQL database, connect to it from an EC2 instance, and perform basic operations.
+
+6) Message Queues with SQS: 
+Implement a basic messaging system using Amazon Simple Queue Service (SQS). Create a queue, send and receive messages between different components of your application.
+
+7) Authentication and Authorization: 
+Use Amazon Cognito for user authentication and authorization. Create a simple application that requires user login and demonstrates secure access to AWS resources.
+
+8) Content Delivery Network (CDN) with CloudFront:
+Set up Amazon CloudFront to accelerate the delivery of your static and dynamic web content. Integrate it with your S3 bucket or an EC2 instance.
+
+9) Serverless Image Processing:
+Use AWS Lambda to create a serverless image processing function. For example, you can resize or watermark images uploaded to an S3 bucket.
+
+10) Monitoring and Logging with CloudWatch:
+Set up monitoring for your AWS resources using Amazon CloudWatch. Create alarms, monitor EC2 instances, and configure logging for your applications.
