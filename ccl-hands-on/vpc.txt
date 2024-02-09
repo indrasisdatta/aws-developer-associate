@@ -1,0 +1,84 @@
+CREATE VPC 
+
+	Name: Demo-VPC-Indra
+	IPv4 CIDR: 10.0.0.0/16
+
+	Create Subnet
+	Subnet name: PublicSubnetA
+	IPv4 subnet CIDR block: 10.0.0.0/24 (smaller subnet size for public)
+	Availability Zone: us-east-2a
+
+	Subnet name: PublicSubnetB
+	IPv4 subnet CIDR block: 10.0.1.0/24 (smaller subnet size for public)
+	Availability Zone: us-east-2b
+
+	Subnet name: PrivateSubnetA
+	IPv4 subnet CIDR block: 10.0.16.0/20 
+	Availability Zone: us-east-2a
+
+	Subnet name: PrivateSubnetB
+	IPv4 subnet CIDR block: 10.0.32.0/20
+	Availability Zone: us-east-2b
+
+
+LAUNCH PUBLIC EC2 INSTANCE (BASTION HOST)
+
+	Network Settings:
+		VPC: Demo-VPC-Indra
+		Subnet: PublicSubnetA
+		Auto-assign public IP: Enable 
+
+	Note: Once instance is created, it won't be able to connect to the internet.
+
+
+CREATE INTERNET GATEWAY
+
+	Name: Demo-IGW-Indra
+	Once created, Actions > Attach to VPC
+
+
+CONFIGURE ROUTE TABLE
+
+	Name: PublicRouteTable-Indra
+	VPC: Demo-VPC-Indra
+
+	Subnet Association > Edit Subnet Association
+	(Select PublicSubnetA, PublicSubnetB)
+
+	Name: PrivateRouteTable-Indra
+	VPC: Demo-VPC-Indra
+
+	Subnet Association > Edit Subnet Association
+	(Select PrivateSubnetA, PrivateSubnetB)
+
+	PublicRouteTable-Indra > Routes > Edit Route
+	10.0.0.0/16  Target local (Already present)
+	0.0.0.0/0    Target IGW   (Any other IP target is internet gateway)
+
+
+LAUNCH PRIVATE EC2 INSTANCE
+
+	1. Create key pair for private instance 
+	2. Network Settings:
+		VPC: Demo-VPC-Indra
+		Subnet: PrivateSubnetA
+		Security group:
+			Create SG 
+				Source type: custom
+				Source info: <sg-of-bastion-host>
+				Allow SSH from bastion host 
+
+CONNECT TO PRIVATE EC2 FROM BASTION HOST
+	1. Connect to bastion host (public) and add pem key file of private instance
+		vi Indra-CCL-Key2.pem
+		chmod 400 "Indra-CCL-Key2.pem"
+
+	2. Run ssh connect command 
+		ssh -i "Indra-CCL-Key2.pem" ec2-user@10.0.31.43
+
+
+
+GIVE INTERNET ACCESS TO PRIVATE EC2 INSTANCE
+
+
+
